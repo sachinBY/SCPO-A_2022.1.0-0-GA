@@ -43,7 +43,7 @@ bydm:
       enabled: false
       size: 3
     item:
-      enabled: true
+      enabled: false
       size: 3 
     purchaseorder:
       enabled: false
