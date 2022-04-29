@@ -1,0 +1,21 @@
+# Properties relating to Database
+
+MSDatabase:
+  url: "jdbc:oracle:thin:@MD1NPDVJCE01:1521:o19c01"
+  driverClassName: "oracle.jdbc.driver.OracleDriver"
+  #SQL Server Example, Please comment/uncomment db parameters as per your db of choice
+  #url: "jdbc:sqlserver://sql-fwk-dev.database.windows.net:1433;database=<Your DB>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
+  #driverClassName: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+       
+  connection:
+    maxPoolSize: "100"
+    minPoolSize: "20"
+    preparedStatementCacheSize: "10"
+    maxWait: "10"
+    acquireIncrement: "20"
+
+queryTimeout: "500"
+
+#replay.inMemoryObjects is defaulted to 10000. 
+#override this properties if need to replay very large messages. 
+replay.inMemoryObjects: 10000
