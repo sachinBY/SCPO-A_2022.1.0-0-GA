@@ -121,9 +121,9 @@ flatten(flatten(payload.network map (network, networkIndex) -> {
 			else 
 				default_value,
 	sourcingUDC:flatten([(lib.getUdcNameAndValue(sourcingEntity, network.avpList, lib.getAvpListMap(network.avpList))[0]) 
-	if (network.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingEntity != null),
+	if (not isEmpty(network.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingEntity != null),
 	(lib.getUdcNameAndValue(sourcingEntity, sourcingInformation.sourcingDetails.avpList, lib.getAvpListMap(sourcingInformation.sourcingDetails.avpList))[0]) 
-	if (sourcingInformation.sourcingDetails.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingEntity != null)
+	if (not isEmpty(sourcingInformation.sourcingDetails.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingEntity != null)
 	]),
 		ACTIONCODE: network.documentActionCode
 	})

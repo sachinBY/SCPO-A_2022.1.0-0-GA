@@ -1,0 +1,37 @@
+#To configure the uomshortlabels and uomcategories field specific tables of inbound entities in SCPO
+bydm:
+  entity:
+    bom:
+      preprocessing: "true"
+      subflow: "get-uom-shortlabel-sub-Flow"
+    dmdunit:
+      preprocessing: "true"
+      subflow: "get-uom-shortlabel-sub-Flow"  
+    item:
+      preprocessing: "true"
+      subflow: "get-uom-shortlabel-sub-Flow"
+    networkcap:
+      preprocessing: "true"
+      subflow: "get-uom-shortlabel-sub-Flow"
+    planarriv:
+      preprocessing: "true"
+      subflow: "sourcing-data-retrieval-for-planarrival-subflow"  
+    sourcinguomconvfactor:
+      preprocessing: "true"
+      subflow: "get-uom-shortlabel-sub-Flow"
+    transmodecap:
+      preprocessing: "true" 
+      subflow: "get-uom-shortlabel-sub-Flow"
+    uom:
+      preprocessing: "true"
+      subflow: "measurement-uom-SubFlow"
+    uomcategory:
+      preprocessing: "true"
+      subflow: "measurement-uom-SubFlow"
+    uomcategoryconvfactor:
+      preprocessing: "true"
+      subflow: "get-uom-shortlabel-sub-Flow,get-uom-categories-sub-Flow"  
+    res:
+      preprocessing: "true"
+      subflow: "get-uom-shortlabel-sub-Flow"
+      

@@ -43,11 +43,11 @@ flatten(flatten(flatten(flatten(payload.network map (network, networkIndex) -> {
 					else default_value,
 
 			sourcingrequirementUDC:flatten([(lib.getUdcNameAndValue(sourcingReqEntity, network.avpList, lib.getAvpListMap(network.avpList))[0]) 
-	if (network.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingReqEntity != null),
+	if (not isEmpty(network.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingReqEntity != null),
 	(lib.getUdcNameAndValue(sourcingReqEntity, sourcingInformation.sourcingDetails.avpList, lib.getAvpListMap(sourcingInformation.sourcingDetails.avpList))[0]) 
-	if (sourcingInformation.sourcingDetails.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingReqEntity != null),
+	if (not isEmpty(sourcingInformation.sourcingDetails.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingReqEntity != null),
 	(lib.getUdcNameAndValue(sourcingReqEntity, resourceRequirement.avpList, lib.getAvpListMap(resourceRequirement.avpList))[0]) 
-	if (resourceRequirement.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingReqEntity != null)
+	if (not isEmpty(resourceRequirement.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingReqEntity != null)
 	]),
    	ACTIONCODE: network.documentActionCode
 })

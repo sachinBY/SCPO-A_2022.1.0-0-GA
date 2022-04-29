@@ -16,8 +16,6 @@ scpo:
     oracle:
       password-secure: SCPOMGR
       staging-password-secure: IGPMGR
-      #password-secure: TST_SCPOMGR
-      #staging-password-secure: TST_IGPMGR
       
 ##########################################################
 #
@@ -87,4 +85,3 @@ sqlldr:
   path-secure: "C:\\oracle\\product\\19c\\bin\\sqlldr.exe"
   connection:
     string-secure: "IGPMGR/IGPMGR@md1npdvjce01:1521/o19c01"
-    #string-secure: "TST_IGPMGR/TST_IGPMGR@md1npdvcid02:1521/o19c01"
