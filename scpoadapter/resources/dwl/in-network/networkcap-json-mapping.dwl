@@ -38,7 +38,7 @@ flatten(flatten(payload.network map (network, networkIndex) -> {
 		DEST: if(network.dropOffLocation.locationId != null) network.dropOffLocation.locationId
 				else default_value,
 		(networkCapUDC: (lib.getUdcNameAndValue(networkCapEntity, network.avpList, lib.getAvpListMap(network.avpList))[0])) 
-	if (not isEmpty(network.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and networkCapEntity != null),
+	if (network.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and networkCapEntity != null),
 		ACTIONCODE: network.documentActionCode
 	})
 } pluck ($)))

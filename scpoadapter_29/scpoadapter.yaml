@@ -45,9 +45,10 @@ bydm:
       
 #inventory and hist aggregation configuration    
   inventory:
+    categories: "AVAILABLE_FOR_SALE"  
     aggregation:
       enabled: true
-      categories: "AVAILABLE_FOR_SALE"
+      
   hist:
     aggregation:
       enabled: true

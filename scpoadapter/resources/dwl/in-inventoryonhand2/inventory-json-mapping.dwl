@@ -37,7 +37,7 @@ flatten(payload.inventoryOnHand2 map (inventory,inventoryIndex) -> {
 		EARLIESTSELLDATE: if(inventory.availableForSaleDate != null and inventory.availableForSaleDate != "")
 							(inventory.availableForSaleDate replace "Z" with ("")) as Date{format:"yyyy-MM-dd",class:"java.sql.Date"}
 						  else default_value,
-		STOCKCATEGORY: if(!isEmpty(inventory.inventoryStatus)) inventory.inventoryStatus else "",				  
+		STOCKCATEGORY: if(!isEmpty(inventory.inventoryStatus)) inventory.inventoryStatus else default_value,				  
 		//BATCHNUMBER: if (inventory.batchNumber != null and inventory.batchNumber != "") inventory.batchNumber
   		//else default_value,				  
 		(inventoryUDCS:(lib.getUdcNameAndValue(inventoryEntity, inventory.avpList, lib.getAvpListMap(inventory.avpList))[0])) if (inventory.avpList != null 

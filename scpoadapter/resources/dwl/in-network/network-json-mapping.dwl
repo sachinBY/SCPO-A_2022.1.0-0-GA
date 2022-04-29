@@ -130,7 +130,7 @@ var networkEntity = vars.entityMap.networkmap[0].network[0]
 					network.leadTimeEfficiencyCalendar
 					else default_value,
 	(networkUDC: (lib.getUdcNameAndValue(networkEntity, network.avpList, lib.getAvpListMap(network.avpList))[0])) 
-	if (not isEmpty(network.avpList) 
+	if (network.avpList != null 
 		and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH")
 		and networkEntity != null
 	),

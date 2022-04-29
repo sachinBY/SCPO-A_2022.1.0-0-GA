@@ -15,14 +15,14 @@ bulk:
     store:
       host:
       #supported possible values are Azure Blob Store, Local File Store  
-      type: "Azure Blob Store"
-      path: 
+      type: "Local File Store"
+      path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO/Outbound" 
   callback:
     maxretries: 5
     millisecondsbetweenretries: 60000
     # supported possible values are AzureBlob, FILE
-    protocol: "Local File Store"
-    ingestion: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO/Outbound" 
+    protocol: "FILE"
+    ingestion:
       config: "HTTPS_Ingestion_Service_Request_configuration"
       #config: "HTTP_Ingestion_Service_Request_configuration"
       host: "localhost"
