@@ -1,0 +1,5 @@
+#SCPO adapter schedular configuration to move data from CSV to IGP
+scheduler:
+  csv-to-igp:
+    enabled: false
+    frequency: '1' #in mins.

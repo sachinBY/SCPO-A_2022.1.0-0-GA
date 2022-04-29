@@ -1,0 +1,24 @@
+MSDatabase:
+  user-secure: "CONNECT_MS04"
+  password-secure: "CONNECT_MS04"
+
+server:
+
+  https:
+    tls:
+      keyStore:
+        password-secure: "changeme"
+        key:
+          password-secure: "changeme"
+      trustStore:
+        password-secure: "changeme"
+        
+  request:
+    replay:
+      tls:
+        keyStore:
+          password-secure: "changeme"
+          key:
+            password-secure: "changeme"
+        trustStore:  
+          password-secure: "changeme"    

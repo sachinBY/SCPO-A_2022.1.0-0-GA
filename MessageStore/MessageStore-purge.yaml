@@ -1,0 +1,24 @@
+# Properties relating to Automated Purge
+# RetentionDays minimum value  should be 1
+autoPurge:
+  retentionDays: 10
+  batchSize: 5000
+  purgLogRetentionDays: 180
+# Automated Purge Object Store Config Details
+  statusObjectStore:
+    # The entry timeout, expires the values every 6 hours if any failure/crash happens in the Auto Purge service
+    timeToExpire: 6
+    # How frequently the expiration thread should run. Units in minutes
+    expInterval: 30
+  scheduler:
+    # Default its "stopped" state, to enable scheduler change the state to "started" 
+    initState: "stopped"
+    #cron expression default to every Friday at 12 AM, can change based on requirement
+    cronJobExpr: "0 0 12 ? * FRI *"
+    # A cron expression consists of six required settings and can include the optional year setting. You specify the settings in the following order:
+    # 1.Seconds (0-59) 2.Minutes (0-59) 3.Hours (0-23) 4.Day of month (1-31) 5.Month (1-12 or JAN-DEC) 6.Day of the week (1-7 or SUN-SAT) 7. Year (empty or a 4-digit year between 1970-2099, for example, 2019)
+    # Below are the different  examples of cron expressions, copy paste based on need in 'cronJobExpr' key. 
+    # To get more cron expressions use https://docs.mulesoft.com/mule-runtime/4.4/scheduler-concept#cron-expressions or https://crontab.guru/
+    # "0 0 0 1,15 * ?" - 1st and 15th of every month at 00:00 hours
+    # "0 */6 * * *" - Every 6th hour
+    # "0 0 * * *" - Every day at mid night at 00:00 hours    

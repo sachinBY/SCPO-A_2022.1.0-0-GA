@@ -1,0 +1,19 @@
+#SCPO adapter configuration to send error notification
+scpo:
+  error:
+    notification:
+      enabled: "false"
+      type: "smtp" #type could be smtp or cloudhub
+  cloudhub:
+    host: "anypoint.mulesoft.com"
+    port: "443"
+    user: "<scpo.cloudhub.user>"
+    password: "<scpo.cloudhub.password>"
+    environment: "Sandbox"
+  smtp:
+    host: "<smtp host details>"
+    port: "<smtp post>"
+    user: "<smtp user>"
+    password: "<smtp password>"
+    toAddress: "<email>"
+    fromAddress: "<email>"
