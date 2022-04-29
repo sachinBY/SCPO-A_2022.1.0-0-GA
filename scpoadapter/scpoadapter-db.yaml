@@ -9,13 +9,10 @@ scpo:
     fetchSize: "1000"
     oracle:
       host: MD1NPDVJCE01
-      #host: md1npdvcid02
       port: "1521"
       instance: O19C01
       user: SCPOMGR
       staging-user: IGPMGR
-      #user: TST_SCPOMGR
-      #staging-user: TST_IGPMGR
       max:
         idle:
           time:

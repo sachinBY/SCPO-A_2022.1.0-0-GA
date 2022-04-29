@@ -10,5 +10,6 @@ var retailplanEntity = vars.entityMap.retailplan2[0].'udt_ep_forecast'[0]
 		SUBCAT: retailplan2.SUBCAT,
 		CHANNEL: retailplan2.CHANNEL,
 		DMDGROUP: retailplan2.DMDGROUP,
-		STARTDATE: retailplan2.STARTDATE
+		STARTDATE: retailplan2.STARTDATE,
+		(vars.deleteudc): 'Y'
 })

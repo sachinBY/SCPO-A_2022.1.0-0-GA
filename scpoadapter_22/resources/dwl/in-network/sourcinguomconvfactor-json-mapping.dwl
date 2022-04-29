@@ -80,11 +80,11 @@ flatten(flatten(flatten(flatten(payload.network map(network, networkIndex) -> {
 			ITEM: if(sourcingInformation.sourcingItem.itemId != null) sourcingInformation.sourcingItem.itemId
 				else default_value,
 	sourcinguomconvfactorUDC:flatten([(lib.getUdcNameAndValue(sourcingUOMConvFactorEntity, network.avpList, lib.getAvpListMap(network.avpList))[0]) 
-	if (not isEmpty(network.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingUOMConvFactorEntity != null),
+	if (network.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingUOMConvFactorEntity != null),
 	(lib.getUdcNameAndValue(sourcingUOMConvFactorEntity, sourcingInformation.sourcingDetails.avpList, lib.getAvpListMap(sourcingInformation.sourcingDetails.avpList))[0]) 
-	if (not isEmpty(sourcingInformation.sourcingDetails.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingUOMConvFactorEntity != null),
+	if (sourcingInformation.sourcingDetails.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingUOMConvFactorEntity != null),
 	(lib.getUdcNameAndValue(sourcingUOMConvFactorEntity, measurementTypeConversion.avpList, lib.getAvpListMap(measurementTypeConversion.avpList))[0]) 
-	if (not isEmpty(measurementTypeConversion.avpList) and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingUOMConvFactorEntity != null)
+	if (measurementTypeConversion.avpList != null and (network.documentActionCode == "ADD" or network.documentActionCode == "CHANGE_BY_REFRESH") and sourcingUOMConvFactorEntity != null)
 	]),
 			ACTIONCODE: network.documentActionCode
 		})
