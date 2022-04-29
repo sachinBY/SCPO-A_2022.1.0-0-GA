@@ -1,7 +1,0 @@
-# Properties relating to replay performance tuning in case og high volume
-replay:
-  # This configuration defines the batch size of processing messages at a time
-  batchSize: "1000"
-  # This configuration prepare a replay payload of defined no of messages. This shouldn't exceed the batchSize defind in replay.collectionBatchSize
-  noOfMessagesInCollection : "10"
-

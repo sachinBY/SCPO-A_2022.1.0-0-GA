@@ -1,2 +1,0 @@
-EXECUTE [CONNECT_MS].[dataMigrationFrom2020300To2021200_Messages] @p_retentionDays=7, @p_batchSize=5000
-EXECUTE [CONNECT_MS].[dataMigrationFrom2020300To2021200_Bulk] @p_retentionDays=7, @p_batchSize=5000
