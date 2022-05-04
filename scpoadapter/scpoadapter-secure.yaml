@@ -14,8 +14,8 @@ mbJmsComponent:
 scpo:
   db:
     oracle:
-      password-secure: SCPOMGR
-      staging-password-secure: IGPMGR
+      password-secure: TST_SCPOMGR
+      staging-password-secure: TST_IGPMGR
       
 ##########################################################
 #
@@ -42,9 +42,9 @@ scpo:
 bulk:
   azure:
     container:
-      name: 
+      name:  "systemteamblob" 
     connection:
-      string-secure: 
+      string-secure: "DefaultEndpointsProtocol=https;AccountName=systemteamblobstorage;AccountKey=CRmi9T2wg1LHgnWHGfhOmthcKlZgA74kEiJ5Jop/R91qJ3ThqBzRc9lMTEroOoFGRVrcUfi1x+IMFQ+a7+0NhA==;EndpointSuffix=core.windows.net" 
   callback:
     password-secure:
     azure:

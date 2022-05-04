@@ -61,38 +61,38 @@ scpo:
     projorderexception:
       receivers: 'HOST.GLOBAL'
       messagetype: 'recommendedPurchaseOrderException'
-      #format: 'bydm'
+      format: 'bydm'
       #version: '2021.3.0'
     projordersku:
       receivers: 'HOST.GLOBAL'
       messagetype: 'recommendedPurchaseOrder'
-      #format: 'bydm'
+      format: 'bydm'
       #version: '2021.3.0'
     projorderskudetail:
       receivers: 'HOST.GLOBAL'
       messagetype: 'recommendedPurchaseOrder'
-      #format: 'bydm'
+      format: 'bydm'
       #version: '2021.3.0'
       currencycode: 'USD'
     projorderskutotal:
       receivers: 'HOST.GLOBAL'
       messagetype: 'recommendedPurchaseOrder'
-      #format: 'bydm'
+      format: 'bydm'
       #version: '2021.3.0'
     projordersummary:
       receivers: 'HOST.GLOBAL'
       messagetype: 'recommendedPurchaseOrder'
-      #format: 'bydm'
+      format: 'bydm'
       #version: '2021.3.0'
     projordersummarydetail:
       receivers: 'HOST.GLOBAL'
       messagetype: 'recommendedPurchaseOrder'
-      #format: 'bydm'
+      format: 'bydm'
       #version: '2021.3.0'
     projordertotal:
       receivers: 'HOST.GLOBAL'
       messagetype: 'recommendedPurchaseOrder'
-      #format: 'bydm'
+      format: 'bydm'
       #version: '2021.3.0'
     sku:
       receivers: 'HOST.GLOBAL'

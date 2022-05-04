@@ -1,0 +1,371 @@
+#SCPO adapter inbound entities configuration
+scpo:
+  inbound:
+    bulk:
+      processing:
+        csv_dir_timestamp_pattern:
+          format: "yyyy-MM-dd-HH-mm"
+          #rolling-offset: 15 # number of mins or hours at which new folder will be created  
+        create_csv_per_message: false 
+#SCPO adapter configuration to store CSV files of inbound entities         
+        bulk_csv_source_dir:
+          path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO-A/csvdata"
+        processed_csv_dir:
+          path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO-A/archive"
+#SCPO adapter configuration of inbound entities with messagetype and corresponding tables            
+    bydm_billofmaterial:
+      #version: "2021.2.0"
+      tables: "bom,altbom"
+      tables_for_soft_delete: "bom"
+    bydm_calendar:
+      #version: "2021.2.0"
+      tables: "cal,calpattern,calattribute"
+      tables_for_soft_delete: "cal"
+    bydm_customerorder:
+      #version: "2021.2.0"
+      tables: "custorder,custorderheader"
+      tables_for_soft_delete: "custorder" 
+    bydm_demandchannel:
+      tables: "dmdgroup"
+      tables_for_soft_delete: "dmdgroup"
+    bydm_demandforecastunit:
+      tables: "dfuview,dfutosku"
+      tables_for_soft_delete: "dfuview"
+    bydm_demandgroupparameters:
+      tables: "skudmdgroupparam,skudmdgroupeffparam"
+      tables_for_soft_delete: "skudmdgroupparam"
+    bydm_demandunit:
+      tables: "dmdunit"
+      tables_for_soft_delete: "dmdunit"  
+    bydm_dynamicdeploymentsourcing:
+      tables: "dyndepsrc"
+      tables_for_soft_delete: "dyndepsrc"
+    bydm_eventgroup:
+      #version: "2021.2.0"
+      tables: "movingevent,movingeventdata,dfumovingeventmap"
+      tables_for_soft_delete: "movingevent"
+    bydm_forecast2:
+      #version: "2021.2.0"
+      tables: "fcst,skuexternalfcst"
+      tables_for_soft_delete: "fcst,skuexternalfcst"
+    bydm_forecasthistory:
+      tables: "skuhistfcst"
+      tables_for_soft_delete: "skuhistfcst"
+    bydm_inventoryonhand2:
+      #version: "2021.2.0"
+      tables: "inventory"
+      tables_for_soft_delete: "inventory"
+    bydm_inventorytransaction2:
+      #version: "2021.2.0"
+      tables: "hist"
+      tables_for_soft_delete: "hist"
+    bydm_item:
+      #version: "2021.3.0"
+      tables: "item,dmdunit,uomcategoryconvfactor"
+      tables_for_soft_delete: "item"
+    bydm_itemhierarchylevelmember:
+      tables: "dmdunit"
+      tables_for_soft_delete: "dmdunit"   
+    bydm_itemlocation:
+      #version: "2021.2.0"
+      tables: "sku,skudemandparam,skudeploymentparam,skueffinventoryparam,skuplanningparam,skusafetystockparam,skuperishableparam,skuioparam,storagerequirement,ss,skueffioparam,sspresentation"
+      tables_for_soft_delete: "sku"       
+    bydm_itemlocationdemandgroupmap:
+      #version: "2021.2.0"
+      tables: "itemlocdmdgroupmap"
+      tables_for_soft_delete: "itemlocdmdgroupmap"  
+    bydm_location:
+      #version: "2021.2.0"
+      tables: "loc"
+      tables_for_soft_delete: "loc"
+    bydm_measurement:
+      tables: "uom,uomcategory"
+      tables_for_soft_delete: "uom"    
+    bydm_network:
+      #version: "2021.2.0"
+      tables: "network,networkcap,sourcing,sourcingrequirement,sourcinguomconvfactor"
+      tables_for_soft_delete: "network"
+    bydm_orderclose:
+      #version: "2021.2.0"
+      tables: "histtransactual,histtransplan"
+      tables_for_soft_delete: "histtransactual"
+    bydm_party:
+      #version: "2021.2.0"
+      tables: "cust"
+      tables_for_soft_delete: "cust"
+    bydm_plannedsupply:
+      #version: "2021.2.0"
+      tables: "planpurch,planarriv"
+      tables_for_soft_delete: "planpurch,planarriv"
+    bydm_prepacksupply:
+      tables: "allocsupplyprepack,allocsupplyprepackdetails"
+      tables_for_soft_delete: "allocsupplyprepack"
+    bydm_pricespecification2:
+      tables: "dfubaseprice,dfueffprice"
+      tables_for_soft_delete: "dfubaseprice"
+    bydm_productionrouting:
+      #version: "2021.2.0"
+      tables: "productionmethod,productionstep,altproductionstep"
+      tables_for_soft_delete: "productionmethod"
+    bydm_promotion:
+      tables: "ddeprofile,dfuddemap"
+      tables_for_soft_delete: "ddeprofile"
+    bydm_purchasemethod:
+      #version: "2021.2.0"
+      tables: "purchmethod"
+      tables_for_soft_delete: "purchmethod"
+    bydm_purchaseorder:
+      #version: "2021.2.0"
+      tables: "purchorder"
+      tables_for_soft_delete: "purchorder"
+    bydm_relation:
+      #version: "2021.2.0"
+      tables: "supersession,dfumaintcopydfu"
+      tables_for_soft_delete: "supersession"
+    bydm_resource:
+      #version: "2021.2.0"
+      tables: "cal,res,calpattern,calattribute"
+      tables_for_soft_delete: "res"
+    bydm_scheduledreceipt:
+      tables: "schedrcpts,schedrcptsdetail"
+      tables_for_soft_delete: "schedrcpts"
+    bydm_supplementalorder:
+      tables: "suppordersku"
+      tables_for_soft_delete: "suppordersku"  
+    bydm_sourcing:
+      #version: "2021.2.0"
+      tables: "sourcing,sourcingrequirement,sourcinguomconvfactor"
+      tables_for_soft_delete: "sourcing"        
+    bydm_transportequipment:
+      tables: "transmode,transmodecap"
+      tables_for_soft_delete: "transmode"
+    bydm_transportload:
+      #version: "2021.2.0"
+      tables: "vehicleloadline,vehicleload"
+      tables_for_soft_delete: "vehicleload"
+    bydm_retailplan2:
+      tables: "udt_ep_forecast,udt_retailplan"
+      tables_for_soft_delete: "udt_ep_forecast,udt_retailplan"  
+#UDC used to mention soft delete      
+  schema:
+      staging:
+        delete:
+          udc: "U_DELETE"
+#SCPO adapter configuation to mention table names and their respective action code based IGP tables          
+        allocsupplyprepack:
+          insert: intins_allocsupplyprepack
+          update: intups_allocsupplyprepack
+        allocsupplyprepackdetails:
+          insert: intins_allocsuppredet
+          update: intups_allocsuppredet
+        bom:
+          insert: intins_bom
+          update: intups_bom
+        altbom:
+          insert: intins_altbom
+          update: intups_altbom
+        cal:
+          insert: intins_cal
+          update: intups_cal
+        calpattern:
+          insert: intins_calpattern
+          update: intups_calpattern
+        calattribute:
+          insert: intins_calattribute
+          update: intups_calattribute
+        custorder:
+          insert: intins_custorder
+          update: intups_custorder
+        custorderheader:
+          insert: intins_custordheader
+          update: intups_custordheader
+        dmdgroup:
+          insert: intins_dmdgroup
+          update: intups_dmdgroup
+        dfuview:
+          insert: intins_dfuview
+          update: intups_dfuview
+        dfutosku:
+          insert: intins_dfutosku
+          update: intups_dfutosku
+        dfubaseprice:
+          insert: intins_dfubaseprice
+          update: intups_dfubaseprice
+        dfueffprice:
+          insert: intins_dfueffprice
+          update: intups_dfueffprice
+        skudmdgroupparam:
+          insert: intins_skudmdgrpparam
+          update: intups_skudmdgrpparam
+        skudmdgroupeffparam:
+          insert: intins_skudmdgroupeffp001
+          update: intups_skudmdgroupeffp001
+        dmdunit:
+            insert: intins_dmdunit
+            update: intups_dmdunit
+        dyndepsrc:
+          insert: intins_dyndepsrc
+          update: intups_dyndepsrc
+        movingevent:
+          insert: intins_movingevent
+          update: intups_movingevent
+        movingeventdata:
+          insert: intins_movingeventdata
+          update: intups_movingeventdata
+        dfumovingeventmap:
+          insert: intins_dfumoveventmap
+          update: intups_dfumoveventmap
+        fcst:
+          insert: intins_fcst
+          update: intups_fcst
+        skuexternalfcst:
+          insert: intins_skuextfcst
+          update: intups_skuextfcst
+        skuhistfcst:
+          insert: intins_skuhistfcst
+          update: intups_skuhistfcst
+        inventory:
+          insert: intins_inventory
+          update: intups_inventory
+        hist:
+          insert: intins_hist
+          update: intups_hist
+        item:
+          insert: intins_item
+          update: intups_item
+        uomcategoryconvfactor:
+          insert: intins_uomcatconvfact
+          update: intups_uomcatconvfact
+        sku:
+          insert: intins_sku
+          update: intups_sku
+        skudemandparam:
+          insert: intins_skudemandparam
+          update: intups_skudemandparam
+        skudeploymentparam:
+          insert: intins_skudeployparam
+          update: intups_skudeployparam
+        skueffinventoryparam:
+          insert: intins_skueffinventory001
+          update: intups_skueffinventory001
+        skuplanningparam:
+          insert: intins_skuplannparam
+          update: intups_skuplannparam
+        skusafetystockparam:
+          insert: intins_skussparam
+          update: intups_skussparam
+        skuperishableparam:
+          insert: intins_skuperishparam
+          update: intups_skuperishparam
+        skuioparam:
+          insert: intins_skuioparam
+          update: intups_skuioparam
+        storagerequirement:
+          insert: intins_storagereq
+          update: intups_storagereq
+        ss:
+          insert: intins_ss
+          update: intups_ss
+        skueffioparam:
+          insert: intins_skueffioparam
+          update: intups_skueffioparam
+        sspresentation:
+          insert: intins_sspresentation
+          update: intups_sspresentation
+        itemlocdmdgroupmap:
+          insert: intins_itmlcdmdgrpmap
+          update: intups_itmlcdmdgrpmap
+        loc:
+          insert: intins_loc
+          update: intups_loc
+        uom:
+          insert: intins_uom
+          update: intups_uom
+        uomcategory:
+          insert: intins_uomcategory
+          update: intups_uomcategory
+        network:
+          insert: intins_network
+          update: intups_network
+        networkcap:
+          insert: intins_networkcap
+          update: intups_networkcap
+        sourcing:
+          insert: intins_sourcing
+          update: intups_sourcing
+        sourcingrequirement:
+          insert: intins_sourcingreq
+          update: intups_sourcingreq
+        sourcinguomconvfactor:
+          insert: intins_srcuomconvfact
+          update: intups_srcuomconvfact
+        histtransactual:
+          insert: intins_histtransactua
+          update: intups_histtransactua
+        histtransplan:
+          insert: intins_histtransplan
+          update: intups_histtransplan
+        cust:
+          insert: intins_cust
+          update: intups_cust
+        planpurch:
+          insert: intins_planpurch
+          update: intups_planpurch
+        planarriv:
+          insert: intins_planarriv
+          update: intups_planarriv
+        productionmethod:
+          insert: intins_prodmethod
+          update: intups_prodmethod
+        productionstep:
+          insert: intins_productionstep
+          update: intups_productionstep
+        altproductionstep:
+          insert: intins_altproductionstep
+          update: intups_altproductionstep
+        ddeprofile:
+          insert: intins_ddeprofile
+          update: intups_ddeprofile
+        dfuddemap:
+          insert: intins_dfuddemap
+          update: intups_dfuddemap
+        purchmethod:
+          insert: intins_purchmethod
+          update: intups_purchmethod
+        purchorder:
+          insert: intins_purchorder
+          update: intups_purchorder
+        supersession:
+          insert: intins_supersession
+          update: intups_supersession
+        dfumaintcopydfu:
+          insert: intins_dfumaincopydfu
+          update: intups_dfumaincopydfu
+        res:
+          insert: intins_res
+          update: intups_res
+        schedrcpts:
+          insert: intins_schedrcpts
+          update: intups_schedrcpts
+        schedrcptsdetail:
+          insert: intins_schedrcptsdetail
+          update: intups_schedrcptsdetail
+        transmode:
+          insert: intins_transmode
+          update: intups_transmode
+        transmodecap:
+          insert: intins_transmodecap
+          update: intups_transmodecap
+        vehicleload:
+          insert: intins_vehicleload
+          update: intups_vehicleload
+        vehicleloadline:
+          insert: intins_vehicleloadln
+          update: intups_vehicleloadln
+        udt_ep_forecast:
+          insert: intins_udt_ep_forecast
+          update: intups_udt_ep_forecast
+        udt_retailplan:
+          insert: intins_udt_retailplan
+          update: intups_udt_retailplan
+         

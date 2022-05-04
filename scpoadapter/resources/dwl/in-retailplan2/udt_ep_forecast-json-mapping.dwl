@@ -33,7 +33,7 @@ output application/java
 	 	)  if (retailplan2.avpList != null and retailplanEntity != null) ,
 	 	STARTDATE: retailplan2.timeId as LocalDateTime,
 		SUBCAT:  if(not isEmpty(retailplan2.itemId)) retailplan2.itemId else default_value,
-		ACTIONCODE: retailplan2.documentActionCode default "CHANGE_BY_REFRESH"
+		ACTIONCODE: if (not isEmpty(retailplan2.documentActionCode)) retailplan2.documentActionCode else if (vars.bulknotificationHeaders.documentActionCode != null) vars.bulknotificationHeaders.documentActionCode else "CHANGE_BY_REFRESH"
 		
   }
     	

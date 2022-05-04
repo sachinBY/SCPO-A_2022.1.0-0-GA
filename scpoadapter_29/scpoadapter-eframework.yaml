@@ -1,0 +1,19 @@
+#SCPO adapter eframework configuration
+eframework:
+  applicationId: connect-scpo-adapter
+  errorReport:
+    enabled: "true"
+    errorReportPath: C:/scpo-2020.1.0/errorReports
+    title: SCPO Adapter
+    htmlTemplatePath: errorReportTemplate.html
+    payload:
+      transaction:
+        size: 2048
+#SCPO adapter logger configuration        
+logger:
+  category: "com.by.jci"
+  nullable: "true"
+  payload:
+    length: "10" #length in kbs
+  advance:
+    enabled: "true"

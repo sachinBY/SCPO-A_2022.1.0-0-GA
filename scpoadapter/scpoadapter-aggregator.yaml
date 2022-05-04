@@ -8,7 +8,7 @@ bydm:
       expirationinterval: 3
       expirationintervalunit: "HOURS"
     name: "inbound-bydm-aggregrator-messages"
-    timeout: 90
+    timeout: 300   #in seconds
     customerorder:
       enabled: false
       size: 3
