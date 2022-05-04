@@ -144,8 +144,8 @@ scpo:
       tables: "vehicleloadline,vehicleload"
       tables_for_soft_delete: "vehicleload"
     bydm_retailplan2:
-      tables: "udt_ep_forecast,udt_retailplan2"
-      tables_for_soft_delete: "udt_ep_forecast"  
+      tables: "udt_ep_forecast,udt_retailplan"
+      tables_for_soft_delete: "udt_ep_forecast,udt_retailplan"  
 #UDC used to mention soft delete      
   schema:
       staging:
@@ -365,7 +365,7 @@ scpo:
         udt_ep_forecast:
           insert: intins_udt_ep_forecast
           update: intups_udt_ep_forecast
-        udt_retailplan2:
-          insert: intins_udt_retailplan2
-          update: intups_udt_retailplan2
+        udt_retailplan:
+          insert: intins_udt_retailplan
+          update: intups_udt_retailplan
          
