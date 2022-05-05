@@ -9,9 +9,9 @@ scpo:
         create_csv_per_message: false 
 #SCPO adapter configuration to store CSV files of inbound entities         
         bulk_csv_source_dir:
-          path: "c:\\csvdata"
+          path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO-A/csvdata"
         processed_csv_dir:
-          path: "c:\\archive"
+          path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO-A/archive"
 #SCPO adapter configuration of inbound entities with messagetype and corresponding tables            
     bydm_billofmaterial:
       #version: "2021.2.0"
