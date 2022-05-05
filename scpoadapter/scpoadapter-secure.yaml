@@ -14,8 +14,8 @@ mbJmsComponent:
 scpo:
   db:
     oracle:
-      password-secure: TST_SCPOMGR
-      staging-password-secure: TST_IGPMGR
+      password-secure: SCPOMGR
+      staging-password-secure: IGPMGR
       
 ##########################################################
 #
