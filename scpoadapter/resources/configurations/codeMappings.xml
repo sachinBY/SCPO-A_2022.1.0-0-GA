@@ -44,6 +44,7 @@
 		<code key="P1" value="Percent" />
 	</code-map>
 	<code-map name="UOMConversion" bi-directional="true">
+		<code key="Pound" value="3003" />
 		<code key="Cubic Foot" value="3004" />
 		<code key="PCE" value="10080" />
 		<code key="acre" value="1" />
