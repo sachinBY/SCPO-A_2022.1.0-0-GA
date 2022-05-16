@@ -36,7 +36,7 @@ bydm:
       sourceuom: "EA"
       targetuom: "EA"
   automatic:
-    uomconversion: "true"
+    uomconversion: "false"
   dmdunit:
     ancestry:
       hierarchies: "CAT,SUBCAT"
