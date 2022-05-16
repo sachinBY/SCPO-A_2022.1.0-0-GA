@@ -1,7 +1,7 @@
 #SCPO adapter configuration to enable/disable message validation
 bydm:
   enable:
-    validation: "true"
+    validation: "false"
 #SCPO adapter timemeasurementunitcode configuration of tables    
   inbound:
     #possible values are seconds,minutes,hours,days,weeks,months,year..default will be minutes if configured as ""
