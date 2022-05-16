@@ -2,13 +2,6 @@
 output application/json encoding = "UTF-8"
 var funCaller = readUrl("classpath://config-repo/scpoadapter/resources/dwl/date-util.dwl")
 var udcs = vars.outboundUDCs.item[0].item[0]
-import * from dw::Runtime
-var reverseUOMMap = vars.codeMap.UOMConversion map {
-	($ pluck (value,key) -> {(value):key})
-}
-var isoCodesMap = vars.codeMap.UOMIsoConversion map {
-	($ pluck(value, key, index) -> {(value):key})
-}
 ---
 {
 	header: {
@@ -16,7 +9,7 @@ var isoCodesMap = vars.codeMap.UOMIsoConversion map {
 		receiver: (splitBy(p("scpo.outbound.item.receivers"), ",") map {
 			(receiver: $) if (!isEmpty($))
 		}).receiver,
-		messageVersion: "BYDM 2021.9.0",
+		messageVersion: "BYDM 2021.3.0",
 		messageId: uuid(),
 		"type": p("scpo.outbound.item.messagetype"),
 		creationDateAndTime: now()
@@ -33,7 +26,7 @@ var isoCodesMap = vars.codeMap.UOMIsoConversion map {
 			value: (flatten(ele pluck($)).DESCR)[0],
 			languageCode: "en"
 		}],
-		tradeItemBaseUnitOfMeasure: if ( (flatten(ele pluck($)).UOM)[0] != null ) reverseUOMMap[(flatten(ele pluck($)).UOM)[0]] else reverseUOMMap[(flatten(ele pluck($)).DEFAULTUOM)[0]],
+		tradeItemBaseUnitOfMeasure: if ( (flatten(ele pluck($)).UOM)[0] != null ) (flatten(ele pluck($)).UOM)[0] else (flatten(ele pluck($)).DEFAULTUOM)[0],
 		priority: (flatten(ele pluck($)).PRIORITY)[0],
 		classifications: {
 			itemType: (flatten(ele pluck($)).ITEMCLASS)[0],
@@ -48,14 +41,10 @@ var isoCodesMap = vars.codeMap.UOMIsoConversion map {
 		},
 		(measurementTypeConversion: (flatten(ele pluck($)) map {
 			(sourceMeasurementUnitCode: {
-				measurementUnitCode: if(reverseUOMMap[$.SOURCEUOM] == null) fail('mapping for ' ++ ($.SOURCEUOM) ++ ' is missing in UOMConversion in codeMappings.xml')
-					else if(isoCodesMap[reverseUOMMap[$.SOURCEUOM]] == null) fail('mapping for ' ++ ($.SOURCEUOM) ++ ' is missing in UOMIsoConversion in codeMappings.xml')
-					else isoCodesMap[reverseUOMMap[$.SOURCEUOM]] as String 
+				measurementUnitCode: $.SOURCEUOM as String 
 			}) if (!isEmpty($.SOURCEUOM)),
 			(targetMeasurementUnitCode: {
-				measurementUnitCode: if(reverseUOMMap[$.TARGETUOM] == null) fail('mapping for ' ++ ($.TARGETUOM) ++ ' is missing in UOMConversion in codeMappings.xml') 
-					else if(isoCodesMap[reverseUOMMap[$.TARGETUOM]] == null) fail('mapping for ' ++ ($.TARGETUOM) ++ ' is missing in UOMIsoConversion in codeMappings.xml')
-					else isoCodesMap[reverseUOMMap[$.TARGETUOM]] as String
+				measurementUnitCode: $.TARGETUOM as String
 			}) if (!isEmpty($.TARGETUOM)),
 			(ratioOfTargetPerSource: $.RATIO) if (!isEmpty($.RATIO))
 		})) if (sizeOf(flatten(ele pluck($)) filter ($.SOURCEUOM != null and $.TARGETUOM != null)) > 0)
