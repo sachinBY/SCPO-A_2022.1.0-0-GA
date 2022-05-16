@@ -44,6 +44,7 @@
 		<code key="P1" value="Percent" />
 	</code-map>
 	<code-map name="UOMConversion" bi-directional="true">
+		<code key="FTQ" value="3004" />
 		<code key="PCE" value="10080" />
 		<code key="acre" value="1" />
 		<code key="ea" value="18" />
