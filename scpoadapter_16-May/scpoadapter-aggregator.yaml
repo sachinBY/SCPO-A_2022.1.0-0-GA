@@ -1,0 +1,110 @@
+#SCPO adapter message aggregation configurations
+bydm:
+  aggregator:
+    objectstore:
+      maxentries: 10000
+      entryttl: 3
+      entryttlunit: "HOURS"
+      expirationinterval: 3
+      expirationintervalunit: "HOURS"
+    name: "inbound-bydm-aggregrator-messages"
+    timeout: 300   #in seconds
+    customerorder:
+      enabled: false
+      size: 3
+    billofmaterial:
+      enabled: false
+      size: 3
+    calendar:
+      enabled: false
+      size: 3
+    party:
+      enabled: false
+      size: 3
+    demandchannel:
+      enabled: false
+      size: 3 
+    itemhierarchylevelmember:
+      enabled: false
+      size: 3
+    demandunit:
+      enabled: false
+      size: 3
+    demandforecastunit:
+      enabled: false
+      size: 3
+    pricespecification2:
+      enabled: false
+      size: 3
+    forecast2:
+      enabled: false
+      size: 3
+    forecasthistory:
+      enabled: false
+      size: 3
+    item:
+      enabled: false
+      size: 3 
+    purchaseorder:
+      enabled: false
+      size: 3
+    eventgroup:
+      enabled: false
+      size: 3
+    plannedsupply:
+      enabled: false
+      size: 3
+    itemlocationdemandgroupmap:
+      enabled: false
+      size: 3
+    network:
+      enabled: false
+      size: 3
+    relation:
+      enabled: false
+      size: 3
+    resource:
+      enabled: false
+      size: 3
+    scheduledreceipt:
+      enabled: false
+      size: 3
+    orderclose:
+      enabled: false
+      size: 3
+    promotion:
+      enabled: false
+      size: 3
+    itemlocation:
+      enabled: false
+      size: 3 
+    dynamicdeploymentsourcing:
+      enabled: false
+      size: 3
+    location:
+      enabled: false
+      size: 3
+    productionrouting:
+      enabled: false
+      size: 3
+    measurement:
+      enabled: false
+      size: 3
+    transportequipment:
+      enabled: false
+      size: 3
+    transportload:
+      enabled: false
+      size: 3
+    prepacksupply:
+      enabled: false
+      size: 3
+    purchasemethod:
+      enabled: false
+      size: 3
+    demandgroupparameters:
+      enabled: false
+      size: 3
+    sourcing:
+      enabled: false
+      size: 3             

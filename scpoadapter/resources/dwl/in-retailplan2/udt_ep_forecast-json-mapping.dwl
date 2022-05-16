@@ -11,6 +11,12 @@ output application/java
 		 measure: if(not isEmpty(retailplan2.measure))
 		 retailplan2.measure map(measure,measureindex) ->
     {
+    	MS_BULK_REF: vars.storeHeaderReference.bulkReference,
+		MS_REF: vars.storeMsgReference.messageReference, 
+		(INTEGRATION_STAMP:((vars.creationDateAndTime as DateTime) + ("PT$((retailplan2index))S" as Period)) as String{format:"yyyy-MM-dd HH:mm:ss"}),
+		MESSAGE_TYPE: vars.bulkNotificationHeaders.bulkType,
+  		MESSAGE_ID: vars.bulkNotificationHeaders.bulkMessageSourceId,
+  		SENDER: vars.bulkNotificationHeaders.sender,
 	    CHANNEL: if(not isEmpty(retailplan2.locationId)) retailplan2.locationId else default_value,
 		DMDGROUP: "LDE",
 		DUR : default_value,
@@ -25,6 +31,12 @@ output application/java
 	}
 	
   else {
+  		MS_BULK_REF: vars.storeHeaderReference.bulkReference,
+		MS_REF: vars.storeMsgReference.messageReference, 
+		(INTEGRATION_STAMP:((vars.creationDateAndTime as DateTime) + ("PT$((retailplan2index))S" as Period)) as String{format:"yyyy-MM-dd HH:mm:ss"}),
+		MESSAGE_TYPE: vars.bulkNotificationHeaders.bulkType,
+  		MESSAGE_ID: vars.bulkNotificationHeaders.bulkMessageSourceId,
+  		SENDER: vars.bulkNotificationHeaders.sender,
   	    CHANNEL: if(not isEmpty(retailplan2.locationId)) retailplan2.locationId else default_value,
 		DMDGROUP: "LDE",
 		DUR : default_value,

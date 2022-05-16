@@ -18,7 +18,8 @@ jms:
       in-intermediate: SCPO-MB-INT
       error: SCPO-DLQMB
     scpo:
-      ack: ACK-SCPO  
+      ack: ACK-SCPO
+    message-replay: SCPO-MSG-REPLAY    
   outbound:
     endpoint:
       type: queue

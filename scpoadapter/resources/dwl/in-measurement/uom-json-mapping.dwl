@@ -1,6 +1,6 @@
 %dw 2.0
 output application/java
-
+import * from dw::Runtime
 var measurementEntity = vars.entityMap.uom[0].uom[0]
 var UOMIsoConversion = vars.codeMap.UOMIsoConversion
 var UOMConversion = vars.codeMap.UOMConversion
@@ -8,11 +8,17 @@ var scpoTypeUomCategory = vars.codeMap.uomCategoryToSCPOTypeConversion
 var lib = readUrl("classpath://config-repo/scpoadapter/resources/dwl/host-scpo-udc-mapping.dwl")
 var default_value = "###JDA_DEFAULT_VALUE###"
 fun getUom(inputPayload, index) =  if (UOMIsoConversion[inputPayload default ""][0] != null)
-									UOMConversion[UOMIsoConversion[inputPayload][0] default ""][0] as Number
+										if(UOMConversion[UOMIsoConversion[inputPayload][0] default ""][0] != null)
+											UOMConversion[UOMIsoConversion[inputPayload][0] default ""][0] as Number
+										else
+											fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					   		  else 
 									vars.maxUom + index
 fun getUomCategory(inputPayload, index) =  if (scpoTypeUomCategory[inputPayload][0] != null)
-											scpoTypeUomCategory[inputPayload][0] as Number
+												if(scpoTypeUomCategory[inputPayload][0] != null)
+													scpoTypeUomCategory[inputPayload][0] as Number
+												else 
+													fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					   		  		  else 
 											vars.maxUomCategory + 1	
 ---

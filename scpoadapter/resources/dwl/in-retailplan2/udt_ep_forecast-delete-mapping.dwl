@@ -5,7 +5,12 @@ var funCaller = readUrl("classpath://config-repo/scpoadapter/resources/dwl/date-
 var retailplanEntity = vars.entityMap.retailplan2[0].'udt_ep_forecast'[0]
 ---
 (payload map (retailplan2, indexOfRetailPlan2) -> {
-
+		MS_BULK_REF: retailplan2.MS_BULK_REF,
+		MS_REF: retailplan2.MS_REF,
+		INTEGRATION_STAMP: retailplan2.INTEGRATION_STAMP,
+		MESSAGE_TYPE: retailplan2.MESSAGE_TYPE,
+  		MESSAGE_ID: retailplan2.MESSAGE_ID,
+  		SENDER: retailplan2.SENDER,
 		MEASURE: retailplan2.MEASURE,
 		SUBCAT: retailplan2.SUBCAT,
 		CHANNEL: retailplan2.CHANNEL,

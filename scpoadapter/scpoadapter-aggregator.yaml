@@ -13,7 +13,7 @@ bydm:
       enabled: false
       size: 3
     billofmaterial:
-      enabled: false
+      enabled: true
       size: 3
     calendar:
       enabled: false

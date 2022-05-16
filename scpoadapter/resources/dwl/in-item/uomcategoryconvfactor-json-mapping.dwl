@@ -200,9 +200,12 @@ flatten(flatten((payload.item map (item, itemIndex) -> {
 		(MS_BULK_REF: vars.storeHeaderReference.bulkReference),
 		(MS_REF: vars.storeMsgReference.messageReference),
 		(INTEGRATION_STAMP:((vars.creationDateAndTime as DateTime) + ("PT$((index))S" as Period)) as String{format:"yyyy-MM-dd HH:mm:ss"}),
+		(avplistUDCS:(lib.getUdcNameAndValue(itemUomCatConvFactorEntity, measurementTypeConversion.avpList, lib.getAvpListMap(measurementTypeConversion.avpList) )[0])) if (measurementTypeConversion.avpList != null and (item.documentActionCode == "ADD" or item.documentActionCode == "CHANGE_BY_REFRESH") and itemUomCatConvFactorEntity != null),
 		MESSAGE_TYPE: vars.bulkNotificationHeaders.bulkType,
 	 	MESSAGE_ID: vars.bulkNotificationHeaders.bulkMessageSourceId,
 	 	SENDER: vars.bulkNotificationHeaders.sender,
+	 	
+	 	
 	})
 } pluck($)))))  map (uomCategoryConvFactor, indexOfUomCategoryConvFactor) -> {
 			ITEM: uomCategoryConvFactor.ITEM,
