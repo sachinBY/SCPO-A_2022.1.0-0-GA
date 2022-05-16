@@ -44,7 +44,7 @@
 		<code key="P1" value="Percent" />
 	</code-map>
 	<code-map name="UOMConversion" bi-directional="true">
-		<code key="EA" value="3001" />
+		<code key="ea" value="3001" />
 		<code key="Pound" value="3003" />
 		<code key="Cubic Foot" value="3004" />
 		<code key="PCE" value="10080" />
