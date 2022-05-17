@@ -48,14 +48,14 @@ var isoCodesMap = vars.codeMap.UOMIsoConversion map {
 		},
 		(measurementTypeConversion: (flatten(ele pluck($)) map {
 			(sourceMeasurementUnitCode: {
-				measurementUnitCode: if(reverseUOMMap[$.SOURCEUOM] == null) fail('mapping for ' ++ ($.SOURCEUOM) ++ ' is missing in UOMConversion in codeMappings.xml')
-					else if(isoCodesMap[reverseUOMMap[$.SOURCEUOM]] == null) fail('mapping for ' ++ ($.SOURCEUOM) ++ ' is missing in UOMIsoConversion in codeMappings.xml')
-					else isoCodesMap[reverseUOMMap[$.SOURCEUOM]] as String 
+				measurementUnitCode: if(reverseUOMMap[$.SOURCEUOM as String] == null) fail('mapping for ' ++ ($.SOURCEUOM) ++ ' is missing in UOMConversion in codeMappings.xml')
+					else if(isoCodesMap[reverseUOMMap[$.SOURCEUOM as String][0]] == null) fail('mapping for ' ++ ($.SOURCEUOM) ++ ' is missing in UOMIsoConversion in codeMappings.xml')
+					else isoCodesMap[reverseUOMMap[$.SOURCEUOM as String][0]][0] 
 			}) if (!isEmpty($.SOURCEUOM)),
 			(targetMeasurementUnitCode: {
-				measurementUnitCode: if(reverseUOMMap[$.TARGETUOM] == null) fail('mapping for ' ++ ($.TARGETUOM) ++ ' is missing in UOMConversion in codeMappings.xml') 
-					else if(isoCodesMap[reverseUOMMap[$.TARGETUOM]] == null) fail('mapping for ' ++ ($.TARGETUOM) ++ ' is missing in UOMIsoConversion in codeMappings.xml')
-					else isoCodesMap[reverseUOMMap[$.TARGETUOM]] as String
+				measurementUnitCode: if(reverseUOMMap[$.TARGETUOM as String] == null) fail('mapping for ' ++ ($.TARGETUOM) ++ ' is missing in UOMConversion in codeMappings.xml') 
+					else if(isoCodesMap[reverseUOMMap[$.TARGETUOM as String][0]] == null) fail('mapping for ' ++ ($.TARGETUOM) ++ ' is missing in UOMIsoConversion in codeMappings.xml')
+					else isoCodesMap[reverseUOMMap[$.TARGETUOM as String][0]][0]
 			}) if (!isEmpty($.TARGETUOM)),
 			(ratioOfTargetPerSource: $.RATIO) if (!isEmpty($.RATIO))
 		})) if (sizeOf(flatten(ele pluck($)) filter ($.SOURCEUOM != null and $.TARGETUOM != null)) > 0)
