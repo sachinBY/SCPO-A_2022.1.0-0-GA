@@ -47,6 +47,7 @@
 	<code-map name="UOMConversion" bi-directional="true">
 		<code key="AltShip Unit" value="800" />
 		<code key="ea" value="3001" />
+		<code key="Pallet" value="3002" />
 		<code key="Pound" value="3003" />
 		<code key="Cubic Foot" value="3004" />
 		<code key="PCE" value="10080" />
