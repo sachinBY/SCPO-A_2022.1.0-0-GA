@@ -2,6 +2,7 @@
 <code-map-configuration>
 	<code-map name="UOMIsoConversion" bi-directional="true">
 		<code key="PC" value="PCE" />
+		<code key="alt" value="AltShip Unit" />
 		<code key="ACR" value="acre" />
 		<code key="EA" value="ea" />
 		<code key="FTK" value="ft2" />
