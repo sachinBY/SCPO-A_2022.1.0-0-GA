@@ -86,3 +86,22 @@ services:
           ContentType: "application/json"
           client_id: "xx"
           client_secret: "xx"
+SCPO-GLOBAL:
+    type: Connect-SCPO-Adapter
+    replay:
+      request:
+        configType: https
+        #configType: http
+        https:
+          port: "9092"
+          host: "md1npdvjce01.dev.corp.local"
+        http:    
+          port: "9091"
+          host: "md1npdvjce01.dev.corp.local"
+        path: /message-replay
+        basePath: /connect-scpo-adapter-api/v1
+        header:
+          Accept: "application/json"
+          ContentType: "application/json"
+          client_id: "xx"
+          client_secret: "xx" 
