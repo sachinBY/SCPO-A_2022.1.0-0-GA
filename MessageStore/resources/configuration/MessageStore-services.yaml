@@ -86,7 +86,7 @@ services:
           ContentType: "application/json"
           client_id: "xx"
           client_secret: "xx"
-SCPO-GLOBAL:
+  SCPO-GLOBAL:
     type: Connect-SCPO-Adapter
     replay:
       request:
