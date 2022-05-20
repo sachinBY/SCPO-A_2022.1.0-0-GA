@@ -31,9 +31,15 @@ fun getUomCategory(inputPayload, index) =  if (scpoTypeUomCategory[inputPayload]
   		MESSAGE_ID: vars.bulkNotificationHeaders.bulkMessageSourceId,
   		SENDER: vars.bulkNotificationHeaders.sender,
 		UOM : if(measurementUnitCode.measurementTypeCategory == "TIME") 
-					getUom(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode, measurementUnitCodeInfIndex)
+					if(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode == null)
+						fail('timeMeasurementUnitCode is not available in input message')
+					else	
+						getUom(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode, measurementUnitCodeInfIndex)
 		      else  if(measurementUnitCode.measurementTypeCategory =="CURRENCY") 
-		      		getUom(measurementUnitCodeInf.measurementUnitCode.currencyCode, measurementUnitCodeInfIndex)
+		      			if(measurementUnitCodeInf.measurementUnitCode.currencyCode == null)
+							fail('currencyCode is not available in input message')
+						else
+		      				getUom(measurementUnitCodeInf.measurementUnitCode.currencyCode, measurementUnitCodeInfIndex)
 		      else  
 		      		getUom(measurementUnitCodeInf.measurementUnitCode.measurementUnitCode, measurementUnitCodeInfIndex),
 		SINGULARLABEL:(measurementUnitCodeInf.measurementUnitCodeDescription filter ($.descriptionType == "SINGULAR_LABEL"))[0].value,

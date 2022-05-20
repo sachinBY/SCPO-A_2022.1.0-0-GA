@@ -10,7 +10,7 @@ fun mapHostToSCPO(packet, pathArray, index) =
 //	($.@attributeName) : $
 //})}
 fun getAvpListMap(avpList) = {(avpList map {
-    ($.name) : $.value
+    (($.name) : $.value) if (!isEmpty($))
 })}
 
 fun getUdcNameAndValue(entityList, avpList, avpMap) = ([

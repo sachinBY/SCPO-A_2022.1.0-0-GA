@@ -1,0 +1,15 @@
+#SCPO adapter acknowledgement configuration
+ack:
+  sbdh:
+    receiver: HOST.GLOBAL
+    sender: SCPO.GLOBAL
+  generator: SCPO-A  
+  received:
+    enabled: "true"
+  accepted:
+    enabled: "true"
+  error:
+    enabled: "true"
+  sent:
+    enabled: "true"  
+ 

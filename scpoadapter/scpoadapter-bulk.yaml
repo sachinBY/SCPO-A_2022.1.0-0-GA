@@ -16,9 +16,9 @@ bulk:
       host:
       #supported possible values are Azure Blob Store, Local File Store  
       type: "Local File Store"
-      path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO/Outbound"  
+      path: "//MD1NPDVJCE01.dev.corp.local/Tools/u/SCPO/Outbound" 
   callback:
-    maxretries: 5
+    maxretries: 2
     millisecondsbetweenretries: 60000
     # supported possible values are AzureBlob, FILE
     protocol: "FILE"

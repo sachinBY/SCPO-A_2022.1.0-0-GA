@@ -1,0 +1,27 @@
+#SCPO adapter canmodel configuration
+canmodel:
+  bydm:
+    #use BYDM_CONFIG_CANMODEL_SERVICE to use canmodel as a service. 
+    #use BYDM_CONFIG_LOCAL_FILE_CONFIG to use local file canmodel
+    type: "BYDM_CONFIG_LOCAL_FILE_CONFIG" 
+    version: "BYDM 2021.10.0.2"  
+  service:
+    config: "HTTP_Canmodel_Request_configuration"
+    #config: "HTTPS_Canmodel_Request_configuration"
+    connection:
+      idle:
+        timeout: "30000"
+    max:
+      connections: "-1"
+    http:
+      #host: "azenpdconap003.dev.corp.local"
+      host: "localhost"
+      port: "9861"
+    https:
+      host: "localhost"
+      port: "9860"
+      tls:
+        keystore:
+          path: "keystore.jks"
+        truststore:
+          path: "truststore.jks"

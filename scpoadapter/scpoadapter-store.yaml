@@ -11,14 +11,14 @@ scpo:
     enabled: "true"
     server:
       requester:
-        config: "HTTPS_MS_Request_Configuration"
-        #config: "HTTP_MS_Request_Configuration"
+        #config: "HTTPS_MS_Request_Configuration"
+        config: "HTTP_MS_Request_Configuration"
         base:
           path: "/messagestore/api/v3"
         storeclientid: "client_id"
         storeclientsecret: "client_secret"
         max:
-          connections: "2"
+          connections: "20"
         connection:
           idle:
             timeout: "1200000"
