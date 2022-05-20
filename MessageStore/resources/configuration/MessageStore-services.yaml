@@ -88,6 +88,12 @@ services:
           client_secret: "xx"
   SCPO-GLOBAL:
     type: Connect-SCPO-Adapter
+    replayPolicy:
+      maxRetries: 2
+      retryIntervalMins: 5 
+      retryIntervalMultiplier: 0.5
+      maxRetryIntervalMins : 1
+      isAcceptedCollection: true
     replay:
       request:
         configType: https
