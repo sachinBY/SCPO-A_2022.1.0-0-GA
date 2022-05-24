@@ -89,7 +89,7 @@ services:
   SCPO-GLOBAL:
     type: Connect-SCPO-Adapter
     replayPolicy:
-      maxRetries: 2
+      maxRetries: 3
       retryIntervalMins: 1 
       retryIntervalMultiplier: 0.5
       maxRetryIntervalMins : 1
@@ -101,7 +101,7 @@ services:
         https:
           port: "9092"
           #port: "9831"
-          host: "1_md1npdvjce01.dev.corp.local"
+          host: "md1npdvjce01.dev.corp.local"
         http:    
           port: "9091"
           #port: "9830"
