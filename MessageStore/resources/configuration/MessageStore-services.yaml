@@ -101,7 +101,7 @@ services:
         https:
           port: "9092"
           #port: "9831"
-          host: "md1npdvjce01.dev.corp.local"
+          host: "IN-md1npdvjce01.dev.corp.local"
         http:    
           port: "9091"
           #port: "9830"
