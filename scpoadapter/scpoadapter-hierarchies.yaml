@@ -2,7 +2,7 @@
 scpo:
   tables:
     hierarchies:
-      total: 10
+      total: 13
       '0': 'uom'
       '1': 'uomcategory'
       '2': 'ddeprofile'
@@ -13,3 +13,6 @@ scpo:
       '7': 'sku'
       '8': 'bom'
       '9': 'altbom'
+      '10': 'PRODUCTIONMETHOD'
+      '11': 'PRODUCTIONSTEP'
+      '12': 'ALTPRODUCTIONSTEP'
