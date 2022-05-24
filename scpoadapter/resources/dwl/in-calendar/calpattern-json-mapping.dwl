@@ -36,7 +36,7 @@ flatten(payload.calendar filter ($.calendarType != null and calendartypeCode[$.c
 				 else if(calendarPattern.patternFrequencyCode=="EVERY_WEEKDAY") 4
 				 else if(calendarPattern.patternFrequencyCode=="DAY_OF_WEEK") (if(calendarPattern.patternFrequency.weekly.weeksOfRecurrence == null or calendarPattern.patternFrequency.weekly.weeksOfRecurrence == 1) 1 else 3)
 				 else if(calendarPattern.patternFrequencyCode=="MONTHLY_ON_DAY_OF_MONTH")(
-				 	if(calendarPattern.patternFrequency.monthly.monthsOfRecurrence == "1") 6 else 7)
+				 	if(calendarPattern.patternFrequency.monthly.monthsOfRecurrence == 1) 6 else 7)
 				 else 7) if(calendarPattern.patternFrequencyCode != null),
 		DESCR: if (calendarPattern.name != null) 
 					calendarPattern.name
