@@ -7,7 +7,7 @@ scpo:
   ms:
     fail:
       duplicate:
-        messages: "true"
+        messages: "false"
     enabled: "true"
     server:
       requester:
