@@ -1,0 +1,37 @@
+#SCPO adapter configuartion to enable/disable CDS
+scpo:
+  cds:
+    enabled: false
+#SCPO adapter database configuartion     
+  db:
+    type: ""
+    blockSize: "100"
+    fetchSize: "1000"
+    oracle:
+      host: MD1NPDVJCE01
+      port: "1521"
+      instance: O19C01
+      user: SCPOMGR
+      staging-user: IGPMGR
+      max:
+        idle:
+          time:
+            secs: "600"
+      pooling:
+        checkoutTimeout: "60000"
+        maxIdleTime: "60000"
+        idleConnectionTestPeriod: "60000"
+        maxPoolSize: "50"
+        minPoolSize: "20"
+        incBy: "10"
+        stmtCacheSize: "10"
+  aggregate:
+    period:  "weekly"
+  
+################################################################################
+################## SQL Loader configuration#####################################
+################################################################################      
+sqlldr:
+  bindsize: "1818000000" 
+  readsize: "1818000000"
+  charactersetname: "UTF8"      

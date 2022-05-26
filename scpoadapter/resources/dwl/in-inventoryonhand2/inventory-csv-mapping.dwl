@@ -32,7 +32,7 @@ var lib = readUrl("classpath://config-repo/scpoadapter/resources/dwl/host-scpo-u
 	  		else default_value,
 	    EARLIESTSELLDATE: if ($.availableForSaleDate != null and $.availableForSaleDate != "" and funCaller.formatGS1ToSCPO($.availableForSaleDate) != default_value) $.availableForSaleDate as Date {format: "yyyy-MM-dd", class : "java.sql.Date"}
 	  		else default_value,
-	  	STOCKCATEGORY: if(!isEmpty($.inventoryStatus)) $.inventoryStatus else default_value,
+	  	STOCKCATEGORY: if(!isEmpty($.inventoryStatus)) $.inventoryStatus else "",
   		//BATCHNUMBER: if ($.batchNumber != null and $.batchNumber != "") $.batchNumber
   		//else default_value,
 		ACTIONCODE: "ADD"

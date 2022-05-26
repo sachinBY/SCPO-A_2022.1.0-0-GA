@@ -1,0 +1,140 @@
+# SCPO Outbound flows configuration
+scpo:
+  outbound:
+    sender: 'SCPO.GLOBAL'
+    fcst:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'forecast2'
+      #version: '2021.2.0'
+      format: 'bydm'
+    dfutoskufcst:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'forecast2'
+      format: 'bydm'
+      #version: '2021.2.0'
+    recship:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'plannedSupply'
+      format: 'bydm'
+      #version: '2021.2.0'
+    vehicleloadline:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'plannedSupply'
+      #version: '2021.2.0'
+      format: 'bydm'
+    planarriv:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'plannedSupply'
+      #version: '2021.2.0'
+    planpurch:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'plannedSupply'
+      #version: '2021.2.0'
+    planorder:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'plannedSupply'
+      #version: '2021.2.0'
+    skuhist:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'demandHistory'
+      format: 'bydm'
+      #version: '2021.2.0'
+    item:
+      receivers: 'HOST.GLOBAL'
+      preprocessing: true
+      messagetype: 'item'
+      #version: '2021.3.0'
+    orderlink:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'supplyDemandLink'
+      #version: '2021.2.0'
+    ordersku:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'recommendedPurchaseOrder'
+      format: 'bydm'
+      #version: '2021.3.0'
+    orderskudetail:
+      receivers: 'HOST.GLOBAL'
+      preprocessing: true
+      messagetype: 'recommendedPurchaseOrder'
+      #version: '2021.3.0'
+    projorderexception:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'recommendedPurchaseOrderException'
+      format: 'bydm'
+      #version: '2021.3.0'
+    projordersku:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'recommendedPurchaseOrder'
+      format: 'bydm'
+      #version: '2021.3.0'
+    projorderskudetail:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'recommendedPurchaseOrder'
+      format: 'bydm'
+      #version: '2021.3.0'
+      currencycode: 'USD'
+    projorderskutotal:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'recommendedPurchaseOrder'
+      format: 'bydm'
+      #version: '2021.3.0'
+    projordersummary:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'recommendedPurchaseOrder'
+      format: 'bydm'
+      #version: '2021.3.0'
+    projordersummarydetail:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'recommendedPurchaseOrder'
+      format: 'bydm'
+      #version: '2021.3.0'
+    projordertotal:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'recommendedPurchaseOrder'
+      format: 'bydm'
+      #version: '2021.3.0'
+    sku:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'itemLocation'
+      format: 'bydm'
+      #version: '2021.2.0'
+    skuprojstatic:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'itemLocationProjection'
+      #version: '2021.2.0'
+    skustatstatic:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'itemLocationStatistics'
+      format: 'bydm'
+      
+    depdmdstatic:
+      receivers: 'HOST.GLOBAL'
+      messagetype: 'dependentDemand'
+      #version: '2021.3.0' 
+    loc:
+      receivers: 'LCT.GLOBAL'
+      messagetype: 'location'
+      #version: '2021.2.0'
+    fcstorder:
+      receivers: 'LCT.GLOBAL'
+      messagetype: 'nettedForecast2'
+      format: 'bydm'
+      #version: '2021.2.0'
+    skueffinventoryparam:
+      receivers: 'LCT.GLOBAL'
+      messagetype: 'itemLocationEffectiveInventoryParameters'
+      preprocessing: true
+      format: 'bydm'
+      #version: '2021.2.0'
+    inventory:
+      receivers: 'LCT.GLOBAL'
+      messagetype: 'inventoryOnHand2'
+      format: 'bydm'
+      #version: '2021.2.0' 
+    dfutoskufcstwide:
+      receivers: 'HOST.GLOBAL'   
+      messagetype: 'forecast2'    
+      #version: '2021.2.0'
+      buckets: 'monthly'
+      format: 'bydm' 

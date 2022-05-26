@@ -7,7 +7,7 @@ scpo:
   ms:
     fail:
       duplicate:
-        messages: "true"
+        messages: "false"
     enabled: "true"
     server:
       requester:
@@ -18,7 +18,7 @@ scpo:
         storeclientid: "client_id"
         storeclientsecret: "client_secret"
         max:
-          connections: "20"
+          connections: "2"
         connection:
           idle:
             timeout: "1200000"
