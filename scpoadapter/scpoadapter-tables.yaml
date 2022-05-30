@@ -362,6 +362,6 @@ scpo:
         vehicleloadline:
           insert: intins_vehicleloadln
           update: intups_vehicleloadln
-        udt_ep_forecast:
+        udt_retailplan:
           insert: intins_udt_retailplan
           update: intups_udt_retailplan    
