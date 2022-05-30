@@ -1,7 +1,0 @@
-<Configuration>
-    <SystemDefaults>
-        <TmDateFormat>yyyy-MM-dd'T'HH:mm:ss</TmDateFormat>
-        <GS1DateFormat>yyyy-MM-dd'T'HH:mm:ss.SSSXXX</GS1DateFormat>
-        <TimeZone>US/Central</TimeZone>
-    </SystemDefaults>
-</Configuration>
