@@ -12,6 +12,6 @@ output application/java
 		DMDGROUP:  promotion.DMDGROUP,			  		
 		LOC: promotion.LOC,
 		MODEL:  promotion.MODEL,
-		DDEPROFILEID : promotion.DDEPROFILEID,
+		PROMOTION: promotion.PROMOTION,
 		(vars.deleteudc): 'Y'
 })

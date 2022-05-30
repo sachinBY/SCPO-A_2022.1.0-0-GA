@@ -23,7 +23,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
   MAXSS:$.safetyStockParameters.maximumSafetyStock.value,
   MINSS: $.safetyStockParameters.minimumSafetyStock.value,
   SSCOV: if($.safetyStockParameters.safetyStockCoverageDuration.value != null) 
-						if($.safetyStockParameters.safetyStockCoverageDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.safetyStockParameters.safetyStockCoverageDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skusafetystockparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.safetyStockParameters.safetyStockCoverageDuration.value * conversionToSeconds[$.safetyStockParameters.safetyStockCoverageDuration.timeMeasurementUnitCode][0]  as Number)
@@ -51,7 +51,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 						default_value,
   STATSSCSL: $.safetyStockParameters.safetyStockCustomerServiceLevel,
   ACCUMDUR: if($.safetyStockParameters.accumulationDuration.value != null) 
-						if($.safetyStockParameters.accumulationDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.safetyStockParameters.accumulationDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skusafetystockparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.safetyStockParameters.accumulationDuration.value * conversionToSeconds[$.safetyStockParameters.accumulationDuration.timeMeasurementUnitCode][0]  as Number)

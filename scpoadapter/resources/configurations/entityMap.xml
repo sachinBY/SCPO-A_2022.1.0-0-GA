@@ -1184,17 +1184,11 @@
     		<column hostColumnName="UDC_ATTRIBUTE_STR3" scpoColumnName="UDC_ATTRIBUTE_STR3"/> 
     	</table> -->
     </entity-map>
-
-     <entity-map scpoEntityName="retailplan2" bi-directional="true">
-	<!--    
-	<table name="udt_ep_forecast">
-	       <column hostColumnName="UDC_STR1" scpoColumnName="UDC_ATTRIBUTE_STR1"/>
-    		<column hostColumnName="UDC_NUM1" scpoColumnName="UDC_ATTRIBUTE_NUM1" dataType="number"/>
-    		<column hostColumnName="UDC_DTE1" scpoColumnName="UDC_ATTRIBUTE_DTE1" dataType="date"/>
-    		<column hostColumnName="UDC_FLT1" scpoColumnName="UDC_ATTRIBUTE_FLT1" dataType="float"/>
-	    </table>
-    	 -->
+    <entity-map scpoEntityName="retailplan2" bi-directional="true">
+    	<!-- <table name="udt_ep_forecast">
+    		<column hostColumnName="UDC_ATTRIBUTE_STR1" scpoColumnName="UDC_ATTRIBUTE_STR1"/>
+    		 <column hostColumnName="UDC_ATTRIBUTE_STR2" scpoColumnName="UDC_ATTRIBUTE_STR2"/>
+    		<column hostColumnName="UDC_ATTRIBUTE_STR3" scpoColumnName="UDC_ATTRIBUTE_STR3"/> 
+    	</table> -->
     </entity-map>
-	
-	
 </entity-map-configuration>

@@ -21,7 +21,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 	  ITEM:$.itemLocationId.item.primaryId,
 	  LOC: $.itemLocationId.location.primaryId,
 	  MINSHELFLIFEDUR: if($.perishableParameters.minimumShelfLifeDuration.value != null) 
-						if($.perishableParameters.minimumShelfLifeDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.perishableParameters.minimumShelfLifeDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skuperishableparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.perishableParameters.minimumShelfLifeDuration.value * conversionToSeconds[$.perishableParameters.minimumShelfLifeDuration.timeMeasurementUnitCode][0]  as Number)
@@ -49,7 +49,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 						default_value,				
 
 	  MINSHIPSHELFLIFEDUR: if($.perishableParameters.minimumShipmentShelfLifeDuration.value != null) 
-						if($.perishableParameters.minimumShipmentShelfLifeDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.perishableParameters.minimumShipmentShelfLifeDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skuperishableparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.perishableParameters.minimumShipmentShelfLifeDuration.value * conversionToSeconds[$.perishableParameters.minimumShipmentShelfLifeDuration.timeMeasurementUnitCode][0]  as Number)
@@ -77,7 +77,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 						default_value,				
 
 	  SHELFLIFEDUR: if($.perishableParameters.shelfLifeDuration.value != null) 
-						if($.perishableParameters.shelfLifeDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.perishableParameters.shelfLifeDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skuperishableparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.perishableParameters.shelfLifeDuration.value * conversionToSeconds[$.perishableParameters.shelfLifeDuration.timeMeasurementUnitCode][0]  as Number)

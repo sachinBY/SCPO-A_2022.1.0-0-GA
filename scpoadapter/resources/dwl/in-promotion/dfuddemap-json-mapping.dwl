@@ -33,7 +33,6 @@ var lib = readUrl("classpath://config-repo/scpoadapter/resources/dwl/host-scpo-u
 					upper(promotioneligibilityInf.modelId)
 				else 
 					"LEWANDOWSKI",
-		DDEMAPACTIONCODE: promotioneligibilityInf.actionCode,
 		(PromotionUDC: (lib.getUdcNameAndValue(promotionEntity, promotion.avpList, lib.getAvpListMap(promotion.avpList))[0])) 
   		if (promotion.avpList != null 
   			and (promotion.documentActionCode == "ADD" or promotion.documentActionCode == "CHANGE_BY_REFRESH")

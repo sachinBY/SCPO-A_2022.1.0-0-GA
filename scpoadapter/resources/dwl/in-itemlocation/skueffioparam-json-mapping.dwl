@@ -25,7 +25,7 @@ arr:(itemLocation.inventoryOptimizationParameters.inventoryOptimizationEffective
 		UNITCOST: eff.unitCost.value,
 		STOCKOUTPENALTY: eff.stockOutPenaltyAmount.value,
 		REVIEWPERIOD: if(eff.reviewPeriodDuration.value != null) 
-						if(eff.reviewPeriodDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty(eff.reviewPeriodDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skueffioparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil(eff.reviewPeriodDuration.value * conversionToSeconds[eff.reviewPeriodDuration.timeMeasurementUnitCode][0]  as Number)

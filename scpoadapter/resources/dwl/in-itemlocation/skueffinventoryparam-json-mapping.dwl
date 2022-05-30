@@ -26,7 +26,7 @@ arr:($.effectiveInventoryParameters map(EFF,index)->{
     MAXOHQTY:EFF.maximumOnHandQuantity.value,
 	MINSSQTY:EFF.minimumSafetyStockQuantity.value,
 	SSCOVDUR:if(EFF.safetyStockCoverageDuration.value != null) 
-						if(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skueffinventoryparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil(EFF.safetyStockCoverageDuration.value * conversionToSeconds[EFF.safetyStockCoverageDuration.timeMeasurementUnitCode][0]  as Number)

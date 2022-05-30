@@ -21,7 +21,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 		  ITEM: $.itemLocationId.item.primaryId,
 		  LOC: $.itemLocationId.location.primaryId,
 		  BUFFERLEADTIME: if($.planningParameters.supplyLeadBufferDuration.value != null) 
-						if($.planningParameters.supplyLeadBufferDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.planningParameters.supplyLeadBufferDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.planningParameters.supplyLeadBufferDuration.value * conversionToSeconds[$.planningParameters.supplyLeadBufferDuration.timeMeasurementUnitCode][0]  as Number)
@@ -49,7 +49,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 						default_value,				
 
 		  DRPFRZDUR: if($.planningParameters.receiptFrozenDuration.value != null) 
-						if($.planningParameters.receiptFrozenDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.planningParameters.receiptFrozenDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.planningParameters.receiptFrozenDuration.value * conversionToSeconds[$.planningParameters.receiptFrozenDuration.timeMeasurementUnitCode][0]  as Number)
@@ -82,7 +82,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 		  INHANDLINGCOST: $.planningParameters.receivingHandlingCost.value,
 		  MAXOH: $.planningParameters.maximumOnHandQuantity.value,
 		  MFGFRZDUR: if($.planningParameters.manufactureDuration.value != null) 
-						if($.planningParameters.manufactureDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.planningParameters.manufactureDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.planningParameters.manufactureDuration.value * conversionToSeconds[$.planningParameters.manufactureDuration.timeMeasurementUnitCode][0]  as Number)
@@ -109,14 +109,33 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 					else 
 						default_value,				
 
-		  MFGLEADTIME: $.planningParameters.manufactureLeadTimeDuration.value,
+		  MFGLEADTIME: if($.planningParameters.manufactureLeadTimeDuration.value != null)
+		  					if(!isEmpty($.planningParameters.manufactureLeadTimeDuration.timeMeasurementUnitCode))
+		  						if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "sec")
+		  							ceil($.planningParameters.manufactureLeadTimeDuration.value * conversionToSeconds[$.planningParameters.manufactureLeadTimeDuration.timeMeasurementUnitCode][0]  as Number)
+							else if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "hour") 
+									ceil($.planningParameters.manufactureLeadTimeDuration.value * conversionToHours[$.planningParameters.manufactureLeadTimeDuration.timeMeasurementUnitCode][0]  as Number)
+							else if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "day") 
+									ceil($.planningParameters.manufactureLeadTimeDuration.value * conversionToDays[$.planningParameters.manufactureLeadTimeDuration.timeMeasurementUnitCode][0]  as Number) 
+							else if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "week") 
+									ceil($.planningParameters.manufactureLeadTimeDuration.value * conversionToWeeks[$.planningParameters.manufactureLeadTimeDuration.timeMeasurementUnitCode][0]  as Number) 			
+							else if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "month") 
+									ceil($.planningParameters.manufactureLeadTimeDuration.value * conversionToMonths[$.planningParameters.manufactureLeadTimeDuration.timeMeasurementUnitCode][0]  as Number)
+							else if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "year") 
+									ceil($.planningParameters.manufactureLeadTimeDuration.value * conversionToYears[$.planningParameters.manufactureLeadTimeDuration.timeMeasurementUnitCode][0]  as Number)
+							else 
+									ceil($.planningParameters.manufactureLeadTimeDuration.value * conversionToMinutes[$.planningParameters.manufactureLeadTimeDuration.timeMeasurementUnitCode][0] as Number)
+						else 
+								$.planningParameters.manufactureLeadTimeDuration.value
+					else 
+						default_value,
 		  MINDRPQTY: $.planningParameters.minimumDRPQuantity.value,
 		  MINMPSQTY: $.planningParameters.minimumMPSQuantity.value,
 		  OUTHANDLINGCOST: $.planningParameters.shippingHandlingCost.value,
 		  SHRINKAGEFACTOR: if($.planningParameters.shrinkageFactor != null) 
 		  					ceil($.planningParameters.shrinkageFactor) else null,
 		  MPSCOVDUR: if($.planningParameters.supplyCoverageDuration.value != null) 
-						if($.planningParameters.supplyCoverageDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.planningParameters.supplyCoverageDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.planningParameters.supplyCoverageDuration.value * conversionToSeconds[$.planningParameters.supplyCoverageDuration.timeMeasurementUnitCode][0]  as Number)
@@ -145,7 +164,7 @@ var conversionToYears=vars.codeMap."time-units-years-conversion"
 
 		  ORDERINGCOST: $.planningParameters.orderingCost.value,
 		  DRPCOVDUR: if($.planningParameters.receiptCoverageDuration.value != null) 
-						if($.planningParameters.receiptCoverageDuration.timeMeasurementUnitCode != null) 		   		   			
+						if(!isEmpty($.planningParameters.receiptCoverageDuration.timeMeasurementUnitCode)) 		   		   			
 							if(lower(p("bydm.inbound.skuplanningparam.timemeasurementunitcode")) startsWith "sec") 
 									
 										ceil($.planningParameters.receiptCoverageDuration.value * conversionToSeconds[$.planningParameters.receiptCoverageDuration.timeMeasurementUnitCode][0]  as Number)
