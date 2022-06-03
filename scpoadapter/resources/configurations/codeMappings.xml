@@ -42,6 +42,7 @@
 		<code key="CMT" value="Centimeter" />
 		<code key="CMQ" value="Cubic Centimeter" />
 		<code key="P1" value="Percent" />
+		<code key="GLE2" value="Gallon2" />
 	</code-map>
 	<code-map name="UOMConversion" bi-directional="true">
 		<code key="PCE" value="10080" />
