@@ -21,7 +21,7 @@ fun getUomCategory(inputPayload, index) =  if (scpoTypeUomCategory[inputPayload]
 													fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					
 					   		  		  else 
-											vars.maxUomCategory + index + 1	
+											vars.maxUomCategory + 1	
 ---
 flatten(flatten(payload.measurement  map (measurementUnitCode, measurementUnitCodeIndex) -> {
 	array:(measurementUnitCode.measurementUnitCodeInformation map (measurementUnitCodeInf, measurementUnitCodeInfIndex) -> {

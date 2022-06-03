@@ -13,14 +13,14 @@ fun getUom(inputPayload, index) =  if (UOMIsoConversion[inputPayload default ""]
 										else
 											fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					   		  else 
-									vars.maxUom + index + 1
+									vars.maxUom + index
 fun getUomCategory(inputPayload, index) =  if (scpoTypeUomCategory[inputPayload][0] != null)
 												if(scpoTypeUomCategory[inputPayload][0] != null)
 													scpoTypeUomCategory[inputPayload][0] as Number
 												else 
 													fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					   		  		  else 
-											vars.maxUomCategory + index + 1	
+											vars.maxUomCategory + 1	
 ---
 (payload.measurement  map (measurementUnitCode, measurementUnitCodeIndex) -> {
 	measurementUnitCode: (measurementUnitCode.measurementUnitCodeInformation map (measurementUnitCodeInf, measurementUnitCodeInfIndex) -> {
