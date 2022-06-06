@@ -14,14 +14,14 @@ fun getUom(inputPayload) =  if (UOMIsoConversion[inputPayload][0] != null)
 									fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					   else 
 							default_value
-fun getUomCategory(inputPayload, index) =  if (scpoTypeUomCategory[inputPayload][0] != null)
+fun getUomCategory(inputPayload, index1, index2) =  if (scpoTypeUomCategory[inputPayload][0] != null)
 												if(scpoTypeUomCategory[inputPayload][0] != null)
 													scpoTypeUomCategory[inputPayload][0] as Number
 												else
 													fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					
 					   		  		  else 
-											vars.maxUomCategory + index + 1	
+											vars.maxUomCategory + index1 + index2 + 1	
 ---
 flatten(flatten(payload.measurement  map (measurementUnitCode, measurementUnitCodeIndex) -> {
 	array:(measurementUnitCode.measurementUnitCodeInformation map (measurementUnitCodeInf, measurementUnitCodeInfIndex) -> {
@@ -31,7 +31,7 @@ flatten(flatten(payload.measurement  map (measurementUnitCode, measurementUnitCo
 	    MESSAGE_TYPE: vars.bulkNotificationHeaders.bulkType,
   		MESSAGE_ID: vars.bulkNotificationHeaders.bulkMessageSourceId,
   		SENDER: vars.bulkNotificationHeaders.sender,
-		CATEGORY:  getUomCategory(measurementUnitCode.measurementTypeCategory, measurementUnitCodeIndex),	
+		CATEGORY:  getUomCategory(measurementUnitCode.measurementTypeCategory, measurementUnitCodeIndex*10, measurementUnitCodeInfIndex),	
 		LABEL:  if (measurementUnitCode.measurementTypeDescription.value != null)
 						measurementUnitCode.measurementTypeDescription.value
 				else 
