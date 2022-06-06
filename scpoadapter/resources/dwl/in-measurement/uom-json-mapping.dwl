@@ -7,22 +7,22 @@ var UOMConversion = vars.codeMap.UOMConversion
 var scpoTypeUomCategory = vars.codeMap.uomCategoryToSCPOTypeConversion
 var lib = readUrl("classpath://config-repo/scpoadapter/resources/dwl/host-scpo-udc-mapping.dwl")
 var default_value = "###JDA_DEFAULT_VALUE###"
-fun getUom(inputPayload, index) =  if (UOMIsoConversion[inputPayload default ""][0] != null)
+fun getUom(inputPayload, index1, index2) =  if (UOMIsoConversion[inputPayload default ""][0] != null)
 										if(UOMConversion[UOMIsoConversion[inputPayload][0] default ""][0] != null)
 											UOMConversion[UOMIsoConversion[inputPayload][0] default ""][0] as Number
 										else
 											fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					   		  else 
-									vars.maxUom + index + 1
-fun getUomCategory(inputPayload, index) =  if (scpoTypeUomCategory[inputPayload][0] != null)
+									vars.maxUom + index1 + index2 + 1
+fun getUomCategory(inputPayload, index1, index2) =  if (scpoTypeUomCategory[inputPayload][0] != null)
 												if(scpoTypeUomCategory[inputPayload][0] != null)
 													scpoTypeUomCategory[inputPayload][0] as Number
 												else 
 													fail('mapping for ' ++ inputPayload ++ ' is missing in codeMappings.xml')	
 					   		  		  else 
-											vars.maxUomCategory + index + 1	
+											vars.maxUomCategory + index1 + index2 + 1	
 ---
-(payload.measurement  map (measurementUnitCode, measurementUnitCodeIndex) -> {
+(vars.payloadCopy.measurement  map (measurementUnitCode, measurementUnitCodeIndex) -> {
 	measurementUnitCode: (measurementUnitCode.measurementUnitCodeInformation map (measurementUnitCodeInf, measurementUnitCodeInfIndex) -> {
 		MS_BULK_REF: vars.storeHeaderReference.bulkReference,
 		MS_REF: vars.storeMsgReference.messageReference,
@@ -34,14 +34,14 @@ fun getUomCategory(inputPayload, index) =  if (scpoTypeUomCategory[inputPayload]
 					if(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode == null)
 						fail('timeMeasurementUnitCode is not available in input message')
 					else	
-						getUom(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode, measurementUnitCodeInfIndex)
+						getUom(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode, measurementUnitCodeIndex, measurementUnitCodeInfIndex)
 		      else  if(measurementUnitCode.measurementTypeCategory =="CURRENCY") 
 		      			if(measurementUnitCodeInf.measurementUnitCode.currencyCode == null)
 							fail('currencyCode is not available in input message')
 						else
-		      				getUom(measurementUnitCodeInf.measurementUnitCode.currencyCode, measurementUnitCodeInfIndex)
+		      				getUom(measurementUnitCodeInf.measurementUnitCode.currencyCode, measurementUnitCodeIndex, measurementUnitCodeInfIndex)
 		      else  
-		      		getUom(measurementUnitCodeInf.measurementUnitCode.measurementUnitCode, measurementUnitCodeInfIndex),
+		      		getUom(measurementUnitCodeInf.measurementUnitCode.measurementUnitCode, measurementUnitCodeIndex, measurementUnitCodeInfIndex),
 		SINGULARLABEL:(measurementUnitCodeInf.measurementUnitCodeDescription filter ($.descriptionType == "SINGULAR_LABEL"))[0].value,
 		PLURALLABEL:(measurementUnitCodeInf.measurementUnitCodeDescription filter ($.descriptionType == "PLURAL_LABEL"))[0].value,	
 		RATIO:  if (measurementUnitCodeInf.basesPerUnit != null) 
@@ -49,7 +49,7 @@ fun getUomCategory(inputPayload, index) =  if (scpoTypeUomCategory[inputPayload]
 				else 
 					default_value,
 		CATEGORY:  if (measurementUnitCode.measurementTypeCategory != null) 
-						getUomCategory(measurementUnitCode.measurementTypeCategory, measurementUnitCodeIndex)
+						getUomCategory(measurementUnitCode.measurementTypeCategory, measurementUnitCodeIndex, measurementUnitCodeIndex)
 				   else 
 				   		default_value,				  		
 		SHORTLABEL: if(measurementUnitCode.measurementTypeCategory == "TIME") 
