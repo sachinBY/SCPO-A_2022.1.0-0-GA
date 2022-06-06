@@ -22,7 +22,7 @@ fun getUomCategory(inputPayload, index1, index2) =  if (scpoTypeUomCategory[inpu
 					   		  		  else 
 											vars.maxUomCategory + index1 + index2 + 1	
 ---
-(vars.payloadCopy.measurement  map (measurementUnitCode, measurementUnitCodeIndex) -> {
+(payload.measurement  map (measurementUnitCode, measurementUnitCodeIndex) -> {
 	measurementUnitCode: (measurementUnitCode.measurementUnitCodeInformation map (measurementUnitCodeInf, measurementUnitCodeInfIndex) -> {
 		MS_BULK_REF: vars.storeHeaderReference.bulkReference,
 		MS_REF: vars.storeMsgReference.messageReference,
