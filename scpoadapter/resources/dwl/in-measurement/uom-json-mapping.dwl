@@ -34,14 +34,14 @@ fun getUomCategory(inputPayload, index1, index2) =  if (scpoTypeUomCategory[inpu
 					if(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode == null)
 						fail('timeMeasurementUnitCode is not available in input message')
 					else	
-						getUom(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode, measurementUnitCodeIndex, measurementUnitCodeInfIndex)
+						getUom(measurementUnitCodeInf.measurementUnitCode.timeMeasurementUnitCode, measurementUnitCodeIndex*10, measurementUnitCodeInfIndex)
 		      else  if(measurementUnitCode.measurementTypeCategory =="CURRENCY") 
 		      			if(measurementUnitCodeInf.measurementUnitCode.currencyCode == null)
 							fail('currencyCode is not available in input message')
 						else
-		      				getUom(measurementUnitCodeInf.measurementUnitCode.currencyCode, measurementUnitCodeIndex, measurementUnitCodeInfIndex)
+		      				getUom(measurementUnitCodeInf.measurementUnitCode.currencyCode, measurementUnitCodeIndex*10, measurementUnitCodeInfIndex)
 		      else  
-		      		getUom(measurementUnitCodeInf.measurementUnitCode.measurementUnitCode, measurementUnitCodeIndex, measurementUnitCodeInfIndex),
+		      		getUom(measurementUnitCodeInf.measurementUnitCode.measurementUnitCode, measurementUnitCodeIndex*10, measurementUnitCodeInfIndex),
 		SINGULARLABEL:(measurementUnitCodeInf.measurementUnitCodeDescription filter ($.descriptionType == "SINGULAR_LABEL"))[0].value,
 		PLURALLABEL:(measurementUnitCodeInf.measurementUnitCodeDescription filter ($.descriptionType == "PLURAL_LABEL"))[0].value,	
 		RATIO:  if (measurementUnitCodeInf.basesPerUnit != null) 
@@ -49,7 +49,7 @@ fun getUomCategory(inputPayload, index1, index2) =  if (scpoTypeUomCategory[inpu
 				else 
 					default_value,
 		CATEGORY:  if (measurementUnitCode.measurementTypeCategory != null) 
-						getUomCategory(measurementUnitCode.measurementTypeCategory, measurementUnitCodeIndex, measurementUnitCodeIndex)
+						getUomCategory(measurementUnitCode.measurementTypeCategory, measurementUnitCodeIndex*10, measurementUnitCodeInfIndex)
 				   else 
 				   		default_value,				  		
 		SHORTLABEL: if(measurementUnitCode.measurementTypeCategory == "TIME") 
