@@ -27,7 +27,7 @@ bydm:
       timemeasurementunitcode: "sec"
 #SCPO adapter bulk outbound message size configuration                 
   message:
-    size: "100"    
+    size: "10000"    
 #SCPO adapter entity configuration       
   network:
     default:
