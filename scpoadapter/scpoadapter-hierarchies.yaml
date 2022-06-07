@@ -2,7 +2,7 @@
 scpo:
   tables:
     hierarchies:
-      total: 13
+      total: 15
       '0': 'uom'
       '1': 'uomcategory'
       '2': 'ddeprofile'
