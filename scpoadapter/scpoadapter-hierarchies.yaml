@@ -16,3 +16,5 @@ scpo:
       '10': 'PRODUCTIONMETHOD'
       '11': 'PRODUCTIONSTEP'
       '12': 'ALTPRODUCTIONSTEP'
+      '13': 'UOMCATEGORY'
+      '14': 'UOM'
