@@ -17,12 +17,12 @@
     </entity-map>
 <entity-map scpoEntityName="billofmaterial" bi-directional="true">
 	<table name="bom">
-    	    <column hostColumnName="UDC_NUM1" scpoColumnName="UDC_ATTRIBUTE_NUM1" dataType="number"/>
-    	    <column hostColumnName="UDC_FLT1" scpoColumnName="UDC_ATTRIBUTE_FLT1" dataType="float"/>	
+    	    <column hostColumnName="UDC_NUM1" scpoColumnName="UDT_ATTRIBUTE_NUM1" dataType="number"/>
+    	    <column hostColumnName="UDC_FLT1" scpoColumnName="UDT_ATTRIBUTE_FLT1" dataType="float"/>	
     	</table>
     	<table name="altbom">
-    	   <column hostColumnName="UDC_NUM2" scpoColumnName="UDC_ATTRIBUTE_NUM1" dataType="number"/>
-    	    <column hostColumnName="UDC_FLT2" scpoColumnName="UDC_ATTRIBUTE_FLT1" dataType="float"/>
+    	   <column hostColumnName="UDC_NUM2" scpoColumnName="UDT_ATTRIBUTE_NUM1" dataType="number"/>
+    	    <column hostColumnName="UDC_FLT2" scpoColumnName="UDT_ATTRIBUTE_FLT1" dataType="float"/>
     	</table>
     	<!-- <table name="bom">
     		<column hostColumnName="creationDateTime" scpoColumnName="udc1" dataType="datetime"/>
