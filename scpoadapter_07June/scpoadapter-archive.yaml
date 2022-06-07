@@ -1,0 +1,10 @@
+#SCPO adapter message archive configuration
+file:
+  archive:
+    enabled: "true"
+inbound:
+  archive:
+    path: C:/SCPO-A-2022.1.0-0/messageArchive/inbound
+outbound:
+  archive:
+    path: C:/SCPO-A-2022.1.0-0/messageArchive/outbound

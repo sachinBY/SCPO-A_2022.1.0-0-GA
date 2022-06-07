@@ -10,6 +10,7 @@ var conversionToDays=vars.codeMap."time-units-days-conversion"
 var conversionToWeeks=vars.codeMap."time-units-weeks-conversion"
 var conversionToMonths=vars.codeMap."time-units-months-conversion"
 var conversionToYears=vars.codeMap."time-units-years-conversion"
+var validTimeMeasurementCodes = ['ANN','B98','C26','C47','DAY','H70','HUR','MIN','MON','QAN','SEC','WEE','15M']
 ---
 (payload.itemLocation map(itemLocation,index) -> {
 (if(itemLocation.inventoryOptimizationParameters.inventoryOptimizationEffectiveParameters != null) {
@@ -25,28 +26,28 @@ arr:(itemLocation.inventoryOptimizationParameters.inventoryOptimizationEffective
 		UNITCOST: eff.unitCost.value,
 		STOCKOUTPENALTY: eff.stockOutPenaltyAmount.value,
 		REVIEWPERIOD: if(eff.reviewPeriodDuration.value != null) 
-						if(!isEmpty(eff.reviewPeriodDuration.timeMeasurementUnitCode)) 		   		   			
+						if(!isEmpty(eff.reviewPeriodDuration.timeMeasurementUnitCode) and (validTimeMeasurementCodes contains upper(eff.reviewPeriodDuration.timeMeasurementUnitCode))) 		   		   			
 							if(lower(p("bydm.inbound.skueffioparam.timemeasurementunitcode")) startsWith "sec") 
 									
-										ceil(eff.reviewPeriodDuration.value * conversionToSeconds[eff.reviewPeriodDuration.timeMeasurementUnitCode][0]  as Number)
+										ceil(eff.reviewPeriodDuration.value * conversionToSeconds[upper(eff.reviewPeriodDuration.timeMeasurementUnitCode)][0]  as Number)
 							else if(lower(p("bydm.inbound.skueffioparam.timemeasurementunitcode")) startsWith "hour") 
 									
-										ceil(eff.reviewPeriodDuration.value * conversionToHours[eff.reviewPeriodDuration.timeMeasurementUnitCode][0]  as Number)
+										ceil(eff.reviewPeriodDuration.value * conversionToHours[upper(eff.reviewPeriodDuration.timeMeasurementUnitCode)][0]  as Number)
 							else if(lower(p("bydm.inbound.skueffioparam.timemeasurementunitcode")) startsWith "day") 
 									
-										ceil(eff.reviewPeriodDuration.value * conversionToDays[eff.reviewPeriodDuration.timeMeasurementUnitCode][0]  as Number) 
+										ceil(eff.reviewPeriodDuration.value * conversionToDays[upper(eff.reviewPeriodDuration.timeMeasurementUnitCode)][0]  as Number) 
 							else if(lower(p("bydm.inbound.skueffioparam.timemeasurementunitcode")) startsWith "week") 
 									
-										ceil(eff.reviewPeriodDuration.value * conversionToWeeks[eff.reviewPeriodDuration.timeMeasurementUnitCode][0]  as Number) 			
+										ceil(eff.reviewPeriodDuration.value * conversionToWeeks[upper(eff.reviewPeriodDuration.timeMeasurementUnitCode)][0]  as Number) 			
 							else if(lower(p("bydm.inbound.skueffioparam.timemeasurementunitcode")) startsWith "month") 
 									
-										ceil(eff.reviewPeriodDuration.value * conversionToMonths[eff.reviewPeriodDuration.timeMeasurementUnitCode][0]  as Number)
+										ceil(eff.reviewPeriodDuration.value * conversionToMonths[upper(eff.reviewPeriodDuration.timeMeasurementUnitCode)][0]  as Number)
 							else if(lower(p("bydm.inbound.skueffioparam.timemeasurementunitcode")) startsWith "year") 
 									
-										ceil(eff.reviewPeriodDuration.value * conversionToYears[eff.reviewPeriodDuration.timeMeasurementUnitCode][0]  as Number)
+										ceil(eff.reviewPeriodDuration.value * conversionToYears[upper(eff.reviewPeriodDuration.timeMeasurementUnitCode)][0]  as Number)
 							else 
 									
-										ceil(eff.reviewPeriodDuration.value * conversionToMinutes[eff.reviewPeriodDuration.timeMeasurementUnitCode][0] as Number)
+										ceil(eff.reviewPeriodDuration.value * conversionToMinutes[upper(eff.reviewPeriodDuration.timeMeasurementUnitCode)][0] as Number)
 						else 
 								eff.reviewPeriodDuration.value
 					else 

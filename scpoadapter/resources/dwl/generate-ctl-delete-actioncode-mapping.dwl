@@ -1,12 +1,12 @@
 %dw 2.0
 output text/plain
-var keys = vars.headers
+var keys = if (vars.tableName == 'DDEPROFILE') vars.headers filter ($ != 'DDEPROFILEID') else vars.headers
 var seqs = (vars.sequencesMap[vars.tableName] map (table , index) -> {
 	'nextvals': (table mapObject {
-		'value': ($$) ++ ' "' ++ p('scpo.db.oracle.user') ++ '.' ++ ($) ++ '.NEXTVAL"'
+		'value': ($$) ++ ' "nvl(:' ++ ($$) ++ ',' ++ p('scpo.db.oracle.user') ++ '.' ++ ($) ++ '.NEXTVAL)"'
 	}).value
 }.nextvals) default []
-var columns = (keys map (key , index) -> 
+var columns = (keys  map (key , index) -> 
 {'key': if(key == 'INTEGRATION_STAMP')
 			key ++ "\" TO_DATE(SUBSTR(:" ++ key ++ ",1,19), 'YYYY/MM/DD HH24:MI:SS')\""
 		else if(key == 'MS_BULK_REF' or key == 'MS_REF' or key == 'PROMOTION' or key == 'MESSAGE_TYPE' or key == 'SENDER' or key == 'MESSAGE_ID') 

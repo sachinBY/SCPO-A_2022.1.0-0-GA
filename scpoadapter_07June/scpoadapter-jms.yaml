@@ -1,0 +1,26 @@
+#SCPO adapter JMS connection configuration
+mbJmsComponent:
+  queue:
+    brokerURL: failover:(tcp://localhost:61616)?jms.prefetchPolicy.all=20
+    user: admin
+    maxConnections: "5"
+    concurrentConsumers: "3"
+    initialRedeliveryDelay: "20000"
+    redeliveryDelay: "20000"
+    sessionCacheSize: "100"
+    maxRedelivery: "0"
+#SCPO adapter JMS queue configuration
+jms:
+  queue:
+    mb:
+      out: MB-SCPO
+      in: SCPO-MB
+      in-intermediate: SCPO-MB-INT
+      error: SCPO-DLQMB
+    scpo:
+      ack: ACK-SCPO
+    message-replay: SCPO-MSG-REPLAY    
+  outbound:
+    endpoint:
+      type: queue
+      

@@ -10,6 +10,7 @@ var conversionToDays=vars.codeMap."time-units-days-conversion"
 var conversionToWeeks=vars.codeMap."time-units-weeks-conversion"
 var conversionToMonths=vars.codeMap."time-units-months-conversion"
 var conversionToYears=vars.codeMap."time-units-years-conversion"
+var validTimeMeasurementCodes = ['ANN','B98','C26','C47','DAY','H70','HUR','MIN','MON','QAN','SEC','WEE','15M']
 ---
 (payload.itemLocation map {
 (if($.effectiveInventoryParameters != null) {
@@ -26,28 +27,28 @@ arr:($.effectiveInventoryParameters map(EFF,index)->{
     MAXOHQTY:EFF.maximumOnHandQuantity.value,
 	MINSSQTY:EFF.minimumSafetyStockQuantity.value,
 	SSCOVDUR:if(EFF.safetyStockCoverageDuration.value != null) 
-						if(!isEmpty(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)) 		   		   			
+						if(!isEmpty(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode) and (validTimeMeasurementCodes contains upper(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode))) 		   		   			
 							if(lower(p("bydm.inbound.skueffinventoryparam.timemeasurementunitcode")) startsWith "sec") 
 									
-										ceil(EFF.safetyStockCoverageDuration.value * conversionToSeconds[EFF.safetyStockCoverageDuration.timeMeasurementUnitCode][0]  as Number)
+										ceil(EFF.safetyStockCoverageDuration.value * conversionToSeconds[upper(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)][0]  as Number)
 							else if(lower(p("bydm.inbound.skueffinventoryparam.timemeasurementunitcode")) startsWith "hour") 
 									
-										ceil(EFF.safetyStockCoverageDuration.value * conversionToHours[EFF.safetyStockCoverageDuration.timeMeasurementUnitCode][0]  as Number)
+										ceil(EFF.safetyStockCoverageDuration.value * conversionToHours[upper(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)][0]  as Number)
 							else if(lower(p("bydm.inbound.skueffinventoryparam.timemeasurementunitcode")) startsWith "day") 
 									
-										ceil(EFF.safetyStockCoverageDuration.value * conversionToDays[EFF.safetyStockCoverageDuration.timeMeasurementUnitCode][0]  as Number) 
+										ceil(EFF.safetyStockCoverageDuration.value * conversionToDays[upper(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)][0]  as Number) 
 							else if(lower(p("bydm.inbound.skueffinventoryparam.timemeasurementunitcode")) startsWith "week") 
 									
-										ceil(EFF.safetyStockCoverageDuration.value * conversionToWeeks[EFF.safetyStockCoverageDuration.timeMeasurementUnitCode][0]  as Number) 			
+										ceil(EFF.safetyStockCoverageDuration.value * conversionToWeeks[upper(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)][0]  as Number) 			
 							else if(lower(p("bydm.inbound.skueffinventoryparam.timemeasurementunitcode")) startsWith "month") 
 									
-										ceil(EFF.safetyStockCoverageDuration.value * conversionToMonths[EFF.safetyStockCoverageDuration.timeMeasurementUnitCode][0]  as Number)
+										ceil(EFF.safetyStockCoverageDuration.value * conversionToMonths[upper(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)][0]  as Number)
 							else if(lower(p("bydm.inbound.skueffinventoryparam.timemeasurementunitcode")) startsWith "year") 
 									
-										ceil(EFF.safetyStockCoverageDuration.value * conversionToYears[EFF.safetyStockCoverageDuration.timeMeasurementUnitCode][0]  as Number)
+										ceil(EFF.safetyStockCoverageDuration.value * conversionToYears[upper(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)][0]  as Number)
 							else 
 									
-										ceil(EFF.safetyStockCoverageDuration.value * conversionToMinutes[EFF.safetyStockCoverageDuration.timeMeasurementUnitCode][0] as Number)
+										ceil(EFF.safetyStockCoverageDuration.value * conversionToMinutes[upper(EFF.safetyStockCoverageDuration.timeMeasurementUnitCode)][0] as Number)
 						else 
 								EFF.safetyStockCoverageDuration.value
 					else 
@@ -58,8 +59,8 @@ arr:($.effectiveInventoryParameters map(EFF,index)->{
 		and ($.documentActionCode == "ADD" or $.documentActionCode == "CHANGE_BY_REFRESH")
 		and skuEffInventoryParamEntity != null
 	),
-	(lib.getUdcNameAndValue(skuEffInventoryParamEntity, $.effectiveInventoryParameters.avpList, lib.getAvpListMap($.effectiveInventoryParameters.avpList) )[0]) 
-	if ($.effectiveInventoryParameters.avpList != null 
+	(lib.getUdcNameAndValue(skuEffInventoryParamEntity, EFF.avpList, lib.getAvpListMap(EFF.avpList) )[0]) 
+	if (EFF.avpList != null 
 		and ($.documentActionCode == "ADD" or $.documentActionCode == "CHANGE_BY_REFRESH")
 		and skuEffInventoryParamEntity != null
 	)])),

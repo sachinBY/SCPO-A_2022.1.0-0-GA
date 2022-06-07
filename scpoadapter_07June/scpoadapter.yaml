@@ -1,0 +1,54 @@
+#SCPO adapter configuration to enable/disable message validation
+bydm:
+  enable:
+    validation: "true"
+#SCPO adapter timemeasurementunitcode configuration of tables    
+  inbound:
+    #possible values are seconds,minutes,hours,days,weeks,months,year..default will be minutes if configured as ""
+    skudemandgruopparam:
+      timemeasurementunitcode: "sec"
+    skueffinventoryparam:
+      timemeasurementunitcode: "sec"
+    skueffioparam:
+      timemeasurementunitcode: "sec"
+    skuperishableparam:
+      timemeasurementunitcode: "sec"
+    skuplanningparam:
+      timemeasurementunitcode: "sec"
+    skusafetystockparam:
+      timemeasurementunitcode: "sec"
+    sourcing:
+      timemeasurementunitcode: "sec"
+    productionstep:
+      timemeasurementunitcode: "sec"
+    purchmethod:
+      timemeasurementunitcode: "sec"
+    resource:
+      timemeasurementunitcode: "sec"
+#SCPO adapter bulk outbound message size configuration                 
+  message:
+    size: "10000"    
+#SCPO adapter entity configuration       
+  network:
+    default:
+      transmode: " "
+      uom: "EA"
+      sourceuom: "EA"
+      targetuom: "EA"
+  automatic:
+    uomconversion: "false"
+  dmdunit:
+    ancestry:
+      hierarchies: "CAT,SUBCAT"
+    process:
+      ancestry: "false"    
+      
+#inventory and hist aggregation configuration    
+  inventory:
+    categories: "AVAILABLE_FOR_SALE"  
+    aggregation:
+      enabled: false
+      
+  hist:
+    aggregation:
+      enabled: false

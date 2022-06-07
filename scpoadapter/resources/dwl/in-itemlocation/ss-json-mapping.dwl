@@ -29,13 +29,8 @@ flatten(flatten(payload.itemLocation map(itemLocation,indexOfItemLocation) ->
 	if (effectiveInventoryParameters.avpList != null 
 		and (itemLocation.documentActionCode == "ADD" or itemLocation.documentActionCode == "CHANGE_BY_REFRESH")
 		and skuSSEntity != null
-	),
-	(lib.getUdcNameAndValue(skuSSEntity, itemLocation.safetyStockParameters.avpList, lib.getAvpListMap(itemLocation.safetyStockParameters.avpList) )[0]) 
-	if (itemLocation.safetyStockParameters.avpList != null 
-		and (itemLocation.documentActionCode == "ADD" or itemLocation.documentActionCode == "CHANGE_BY_REFRESH")
-		and skuSSEntity != null
 	)])),
         ACTIONCODE: itemLocation.documentActionCode
-     }) if (itemLocation.safetyStockParameters.safetyStockRuleCode == '1')
+     })
         
 } pluck($)))

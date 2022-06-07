@@ -16,14 +16,6 @@
     	</table> -->
     </entity-map>
 <entity-map scpoEntityName="billofmaterial" bi-directional="true">
-	<table name="bom">
-    	    <column hostColumnName="UDC_NUM1" scpoColumnName="UDT_ATTRIBUTE_NUM1" dataType="number"/>
-    	    <column hostColumnName="UDC_FLT1" scpoColumnName="UDT_ATTRIBUTE_FLT1" dataType="float"/>	
-    	</table>
-    	<table name="altbom">
-    	   <column hostColumnName="UDC_NUM2" scpoColumnName="UDT_ATTRIBUTE_NUM1" dataType="number"/>
-    	    <column hostColumnName="UDC_FLT2" scpoColumnName="UDT_ATTRIBUTE_FLT1" dataType="float"/>
-    	</table>
     	<!-- <table name="bom">
     		<column hostColumnName="creationDateTime" scpoColumnName="udc1" dataType="datetime"/>
     		<column hostColumnName="billOfMaterialIdentification/entityIdentification" scpoColumnName="udc2"/>
@@ -414,24 +406,6 @@
     	</table> -->
     </entity-map>
     <entity-map scpoEntityName="movingevent" bi-directional="true">
-	 <table name="movingevent">
-    		<column hostColumnName="UDC_STR1" scpoColumnName="UDC_ATTRIBUTE_STR1"/>
-    		<column hostColumnName="UDC_NUM1" scpoColumnName="UDC_ATTRIBUTE_NUM1" dataType="number"/>
-    		<column hostColumnName="UDC_DTE1" scpoColumnName="UDC_ATTRIBUTE_DTE1" dataType="date"/>
-    		<column hostColumnName="UDC_FLT1" scpoColumnName="UDC_ATTRIBUTE_FLT1" dataType="float"/>
-    	</table>
-    	<table name="movingeventdata">
-    		<column hostColumnName="UDC_STR2" scpoColumnName="UDC_ATTRIBUTE_STR1"/>
-    		<column hostColumnName="UDC_NUM2" scpoColumnName="UDC_ATTRIBUTE_NUM1" dataType="number"/>
-    		<column hostColumnName="UDC_DTE2" scpoColumnName="UDC_ATTRIBUTE_DTE1" dataType="date"/>
-    		<column hostColumnName="UDC_FLT2" scpoColumnName="UDC_ATTRIBUTE_FLT1" dataType="float"/>
-    	</table>
-    	<table name="dfumovingeventmap">
-    		<column hostColumnName="UDC_STR3" scpoColumnName="UDC_ATTRIBUTE_STR1"/>
-    		<column hostColumnName="UDC_NUM3" scpoColumnName="UDC_ATTRIBUTE_NUM1" dataType="number"/>
-    		<column hostColumnName="UDC_DTE3" scpoColumnName="UDC_ATTRIBUTE_DTE1" dataType="date"/>
-    		<column hostColumnName="UDC_FLT3" scpoColumnName="UDC_ATTRIBUTE_FLT1" dataType="float"/>
-    	</table>
     	<!-- <table name="movingevent">
     		<column hostColumnName="creationDateTime" scpoColumnName="udc1" dataType="datetime"/>
     		<column hostColumnName="eventGroupIdentification/entityIdentification" scpoColumnName="udc2"/>
@@ -1179,12 +1153,6 @@
     	</table>-->
     </entity-map>	
     <entity-map scpoEntityName="skueffinventoryparam" bi-directional="true">
-	  <table name="skueffinventoryparam" isOutBound="true">
-              <column hostColumnName="UDC_STR1" scpoColumnName="UDC_ATTRIBUTE_STR1"/>
-              <column hostColumnName="UDC_NUM1" scpoColumnName="UDC_ATTRIBUTE_NUM1" dataType="number"/>
-             <column hostColumnName="UDC_DTE1" scpoColumnName="UDC_ATTRIBUTE_DTE1" dataType="date"/>
-               <column hostColumnName="UDC_FLT1" scpoColumnName="UDC_ATTRIBUTE_FLT1" dataType="float"/>
-	 </table>
     	 <!--<table name="skueffinventoryparam">
     		<column hostColumnName="sap1" scpoColumnName="MAXOHQTY"/>
     		<column hostColumnName="sap2" scpoColumnName="SSCOVDUR"/>
