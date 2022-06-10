@@ -1,0 +1,38 @@
+#SCPO adapter message store configuration
+scpo:                
+  serviceName: "SCPO-GLOBAL"
+  serviceType: "ADAPTER"
+  serviceInstance: "SCPO-CLUSTER"
+  serviceNamedVersion: "SCPO-2020.1.0"
+  ms:
+    fail:
+      duplicate:
+        messages: "false"
+    enabled: "true"
+    server:
+      requester:
+        config: "HTTPS_MS_Request_Configuration"
+        #config: "HTTP_MS_Request_Configuration"
+        base:
+          path: "/messagestore/api/v3"
+        storeclientid: "client_id"
+        storeclientsecret: "client_secret"
+        max:
+          connections: "2"
+        connection:
+          idle:
+            timeout: "1200000"
+        response:
+          buffer:
+            size: "1024"
+        http:
+          host: "md1npdvjce01.dev.corp.local"
+          port: "9831"
+        https:
+          host: "md1npdvjce01.dev.corp.local"
+          port: "9830"
+          tls:
+            keyStore:
+              path: "keystore.jks"
+            trustStore:
+              path: "truststore.jks"

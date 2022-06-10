@@ -3,7 +3,7 @@ eframework:
   applicationId: connect-scpo-adapter
   errorReport:
     enabled: "true"
-    errorReportPath: C:/CPO-A-2022.1.0-0/errorReports
+    errorReportPath: C:/SCPO-A-2022.1.0-0/errorReports
     title: SCPO Adapter
     htmlTemplatePath: errorReportTemplate.html
     payload:

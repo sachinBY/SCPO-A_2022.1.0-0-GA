@@ -1,0 +1,87 @@
+#########################################################
+#
+#         JMS active mq configuration
+#
+#########################################################
+mbJmsComponent:
+  queue:
+    password-secure: admin
+#########################################################    
+#
+#         SCPO database configuration
+#
+#########################################################      
+scpo:
+  db:
+    oracle:
+      password-secure: SCPOMGR
+      staging-password-secure: IGPMGR
+      
+##########################################################
+#
+#         messagestore configuration   
+#
+##########################################################      
+  ms:
+    server:
+      requester:
+        https:
+          key:
+            password-secure: "changeme"
+          tls:
+            keyStore:
+              password-secure: "changeme"
+            trustStore:
+              password-secure: "changeme"
+    
+##########################################################
+#
+#         bulk notification configuration   
+#
+##########################################################      
+bulk:
+  azure:
+    container:
+      name: "systemteamblob" 
+    connection:
+      string-secure: "DefaultEndpointsProtocol=https;AccountName=systemteamblobstorage;AccountKey=CRmi9T2wg1LHgnWHGfhOmthcKlZgA74kEiJ5Jop/R91qJ3ThqBzRc9lMTEroOoFGRVrcUfi1x+IMFQ+a7+0NhA==;EndpointSuffix=core.windows.net"  
+  callback:
+    password-secure:
+    azure:
+      container:
+        name: "systemteamblob"
+      connection:
+        string-secure: "DefaultEndpointsProtocol=https;AccountName=systemteamblobstorage;AccountKey=CRmi9T2wg1LHgnWHGfhOmthcKlZgA74kEiJ5Jop/R91qJ3ThqBzRc9lMTEroOoFGRVrcUfi1x+IMFQ+a7+0NhA==;EndpointSuffix=core.windows.net" 
+    ingestion:
+      truststore:
+        password-secure: "changeme"
+      key:
+        password-secure: "changeme"
+      keystore:
+        password-secure: "changeme"    
+        
+##########################################################
+#
+#         canmodel service configuration   
+#
+##########################################################
+canmodel:
+  service:
+    https:
+      tls:
+        keystore:
+          password-secure: "changeme"
+          key:
+            password-secure: "changeme"
+        truststore:
+          password-secure: "changeme"       
+      
+##########################################################
+#
+#         sqlloader configuration   
+#
+##########################################################      
+sqlldr:
+  path-secure: "C:\\oracle\\product\\19c\\bin\\sqlldr.exe"
+  connection:
+    string-secure: "IGPMGR/IGPMGR@md1npdvjce01:1521/o19c01"

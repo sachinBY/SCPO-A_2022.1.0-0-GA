@@ -1,0 +1,18 @@
+#SCPO adapter configuration to load data into tables in order mentioned below 0 means first table to load, 1 means second table and so on
+scpo:
+  tables:
+    hierarchies:
+      total: 13
+      '0': 'uomcategory'
+      '1': 'uom'
+      '2': 'ddeprofile'
+      '3': 'item'
+      '4': 'dmdunit'
+      '5': 'uomcategoryconvfactor'
+      '6': 'loc'
+      '7': 'sku'
+      '8': 'bom'
+      '9': 'altbom'
+      '10': 'PRODUCTIONMETHOD'
+      '11': 'PRODUCTIONSTEP'
+      '12': 'ALTPRODUCTIONSTEP'     
