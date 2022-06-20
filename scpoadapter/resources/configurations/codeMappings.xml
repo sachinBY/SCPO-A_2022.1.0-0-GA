@@ -46,7 +46,7 @@
 	<code-map name="UOMConversion" bi-directional="true">
 		<code key="PCE" value="10080" />
 		<code key="acre" value="1" />
-		<code key="ea" value="18" />
+		<code key="ea" value="3001" />
 		<code key="ft2" value="2" />
 		<code key="cm2" value="3" />
 		<code key="m2" value="6" />
@@ -138,6 +138,7 @@
 		<code key="PACK CATEGORY" value="2003" />
 	</code-map>
 	<code-map name="uomToCategoryTypeConversion" bi-directional="true">
+		<code key="3001" value="3001" />
 		<code key="20003" value="2003" />
 		<code key="20004" value="2004" />
 		<code key="0" value="-1" />
