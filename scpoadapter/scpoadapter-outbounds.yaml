@@ -82,7 +82,7 @@ scpo:
     projordersummary:
       receivers: 'HOST.GLOBAL'
       messagetype: 'recommendedPurchaseOrder'
-      format: 'bydm'
+      format: 'csv'
       #version: '2021.3.0'
     projordersummarydetail:
       receivers: 'HOST.GLOBAL'
