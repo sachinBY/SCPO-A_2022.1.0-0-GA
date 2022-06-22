@@ -6,7 +6,7 @@ scpo:
       receivers: 'HOST.GLOBAL'
       messagetype: 'forecast2'
       #version: '2021.2.0'
-      format: 'csv'
+      format: 'bydm'
     dfutoskufcst:
       receivers: 'HOST.GLOBAL'
       messagetype: 'forecast2'
