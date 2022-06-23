@@ -1165,11 +1165,11 @@
     	</table> -->
     </entity-map>
 	<entity-map scpoEntityName="projordersummary" bi-directional="true">
-    	 <table name="projordersummary" isOutBound="true">
+    	 <!-- <table name="projordersummary" isOutBound="true">
     		<column hostColumnName="UDC_ATTRIBUTE_STR1" scpoColumnName="UDC_ATTRIBUTE_STR1"/>
     		 <column hostColumnName="UDC_ATTRIBUTE_STR2" scpoColumnName="UDC_ATTRIBUTE_STR2"/>
     		<column hostColumnName="UDC_ATTRIBUTE_STR3" scpoColumnName="UDC_ATTRIBUTE_STR3"/> 
-    	</table>
+    	</table> -->
     	<!-- <table name="UDT_PROJORDERSUMMARY" isUDT="true">
     		<column hostColumnName="basicParty/partyName" scpoColumnName="udc1"/>
     		<column hostColumnName="basicParty/partyAddress/city" scpoColumnName="udc2"/>
