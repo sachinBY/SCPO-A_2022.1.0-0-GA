@@ -8,7 +8,7 @@ scpo:
     fail:
       duplicate:
         messages: "false"
-    enabled: "true"
+    enabled: "false"
     server:
       requester:
         config: "HTTPS_MS_Request_Configuration"
