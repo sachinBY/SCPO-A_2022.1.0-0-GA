@@ -1,7 +1,7 @@
 #SCPO adapter JMS connection configuration
 mbJmsComponent:
   queue:
-    brokerURL: failover:(tcp://md1npdvjce01:61616)?jms.prefetchPolicy.all=20
+    brokerURL: failover:(tcp://md1npdvjce01:61616)?jms.prefetchPolicy.all=10
     user: admin
     maxConnections: "5"
     concurrentConsumers: "3"
