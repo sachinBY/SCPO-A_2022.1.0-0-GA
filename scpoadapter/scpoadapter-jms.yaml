@@ -18,6 +18,9 @@ jms:
       in-intermediate: SCPO-MB-INT
       error: SCPO-DLQMB
     scpo:
+      igp:
+       consumers: 3
+       in: CSV-TO-IGP
       ack: ACK-SCPO
     message-replay: SCPO-MSG-REPLAY    
   outbound:
