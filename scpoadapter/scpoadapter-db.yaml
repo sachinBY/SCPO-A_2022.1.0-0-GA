@@ -21,7 +21,7 @@ scpo:
         checkoutTimeout: "60000"
         maxIdleTime: "60000"
         idleConnectionTestPeriod: "60000"
-        maxPoolSize: "50"
+        maxPoolSize: "100"
         minPoolSize: "20"
         incBy: "10"
         stmtCacheSize: "10"
